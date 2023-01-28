@@ -1,0 +1,29 @@
+.bodyCircle{
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    background: #bfbfbf8c;
+    border: 3px solid black;
+  
+    text-align: center;
+    font-size: 36px;
+
+    animation: 1s show forwards;
+  }
+  .bodyCircle:hover{
+    background: #ccb5008c;
+    border: 3px solid #942323;
+  }
+
+.disabled{
+  animation: 1s hide forwards;
+}
+
+@keyframes show {
+    0% {opacity:0; display: block}
+    100% {opacity:1}
+}
+@keyframes hide {
+    0% {opacity:1}
+    100% {opacity:0; display: none}
+}

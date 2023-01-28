@@ -1,0 +1,65 @@
+.divContainer{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    width: 100%;
+    height: 100%;
+}
+
+.divBody{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.divVideo{
+    position: absolute;
+    width: 1592px;
+    height: 597px;
+    z-index: -1;
+}
+
+.videoElement{
+    width: 100%;
+    height: 100%;
+}
+
+.divButtons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px auto;
+    width: 500px;
+}
+
+.buttonStart{
+    padding: 10px 15px;
+    background: #bfffbfa8;
+    border: 2px solid #4dff4d;
+}
+.buttonStart:hover{
+    background: #4dff4da8;
+    border: 2px solid #00c100;
+}
+.buttonReset{
+    padding: 10px 15px;
+    background: #ffbfbfa8;
+    border: 2px solid #ff4d4d;
+}
+.buttonReset:hover{
+    background: #ff4d4da8;
+    border: 2px solid #c10000;
+}
+
+.disabled{
+    background: #818181a8;
+    border: 2px solid #3d3d3d;
+    color: #fcfcfc;
+}
+.disabled:hover{
+    background: #818181a8;
+    border: 2px solid #3d3d3d;
+    color: #fcfcfc;
+}
