@@ -1,0 +1,138 @@
+.divBody {
+  background-image: url(/public/images/skeleton.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* width: 288px;
+  height: 557px; */
+  width: 248px;
+  height: 558px;
+  margin: 20px 0px;
+
+  position: relative;
+}
+
+.disabled{
+  animation: 1s hide forwards;
+}
+
+@keyframes show {
+    0% {opacity:0; display: block}
+    100% {opacity:1}
+}
+@keyframes hide {
+    0% {opacity:1}
+    100% {opacity:0; display: none}
+}
+
+.circleHead{
+  height: 80px;
+  width: 80px;
+
+  font-size: 36px;
+  line-height: 75px;
+
+  z-index: 2;
+}
+.circleChest{
+  height: 60px;
+  width: 60px;
+
+  font-size: 32px;
+  line-height: 52px;
+
+  z-index: 2;
+}
+.circlePelvis{
+  height: 65px;
+  width: 65px;
+
+  font-size: 32px;
+  line-height: 57px;
+
+  z-index: 2;
+}
+.circleSmall{
+  height: 50px;
+  width: 50px;
+
+  font-size: 22px;
+  line-height: 50px;
+
+  z-index: 2;
+}
+
+/* CENTRAL CORE */
+.bodyPositionHead{
+  position: absolute;
+  left: 83px;
+  top: 0px;
+}
+.bodyPositionChest{
+  position: absolute;
+  left: 91px;
+  top: 123px;
+}
+.bodyPositionPelvis{
+  position: absolute;
+  left: 89px;
+  top: 240px;
+}
+
+/* RIGHT ARM */
+.bodyPositionShoulderR{
+  position: absolute;
+  left: 155px;
+  top: 81px;
+}
+.bodyPositionElbowR{
+  position: absolute;
+  left: 176px;
+  top: 168px;
+}
+.bodyPositionHandR{
+  position: absolute;
+  left: 203px;
+  top: 250px;
+}
+
+/* LEFT ARM */
+.bodyPositionShoulderL{
+  position: absolute;
+  left: 34px;
+  top: 82px;
+}
+.bodyPositionElbowL{
+  position: absolute;
+  left: 13px;
+  top: 169px;
+}
+.bodyPositionHandL{
+  position: absolute;
+  left: -11px;
+  top: 247px;
+}
+
+/* RIGHT LEG */
+.bodyPositionKneeR{
+  position: absolute;
+  left: 54px;
+  top: 380px;
+}
+.bodyPositionFootR{
+  position: absolute;
+  left: 63px;
+  top: 508px;
+}
+
+/* LEFT LEG */
+.bodyPositionKneeL{
+  position: absolute;
+  left: 139px;
+  top: 379px;
+}
+.bodyPositionFootL{
+  position: absolute;
+  left: 133px;
+  top: 508px;
+}
+
