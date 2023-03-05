@@ -1,0 +1,29 @@
+
+html{
+    overflow-y: hidden;
+}
+
+.canvas-div{
+    height: 100vh;
+    width: 100vh;
+    position: fixed;
+    z-index: -50;
+    background-color: red;
+}
+
+.divButtons{
+
+}
+
+.buttones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    min-width: fit-content;
+
+    background: linear-gradient( to bottom, #ffffff00 calc(50% - 12px), #07827f calc(50% - 12px), #07827f calc(50% + 12px), #ffffff calc(50% + 12px))
+}
+
+

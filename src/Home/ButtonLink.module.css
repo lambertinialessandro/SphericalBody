@@ -1,0 +1,103 @@
+.cardLinkBox{
+    text-decoration: none;
+    background: #07827f;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    user-select: none;
+
+    position: relative;
+    left: -100%;
+    animation: entering 2s forwards ease-in-out;
+}
+.floating{
+    animation: floatingX 2s 3s infinite linear, floatingY 3s 3s infinite linear;
+}
+
+.cardLinkBox:nth-child(1){
+    animation-delay: 0.7s;
+}
+.cardLinkBox:nth-child(2){
+    animation-delay: 0.5s;
+}
+.cardLinkBox:nth-child(3){
+    animation-delay: 0.3s;
+}
+.cardLinkBox:nth-child(4){
+    animation-delay: 0.1s;
+}
+
+
+@keyframes entering {
+    0% {position: relative; left: -100%;}
+    80% {left: 20%;}
+    100% {position: relative; left: 0%;}
+}
+
+@keyframes floatingX {
+    0% {left: 0px;}
+    33% {left: 2.5px;}
+    66% {left: -2.5px;}
+    100% {left: 0px;}
+}
+
+@keyframes floatingY {
+    0% {top: 0px;}
+    33% {top: 2.5px;}
+    66% {top: -2.5px;}
+    100% {top: 0px;}
+}
+
+.fullscreen{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0 ;
+    left: 0 ;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0;
+
+    transition: 1s ease-in-out;
+}
+
+.cardLinkBox:nth-of-type(1){
+    margin: 0px 50px 0px 100px;
+}
+.cardLinkBox:nth-of-type(n):not(:first-of-type):not(:last-of-type){
+    margin: 0px 50px 0px 0px;
+}
+.cardLinkBox:nth-last-of-type(1){
+    margin: 0px 100px 0px 0px;
+}
+
+.linkTextContext{
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.linkTitle{
+    color: #ffffff;
+    text-shadow: 2px 2px 2px #555353;
+    font-family: 'Aileron thin', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.linkSubTitle{
+    color: #ffffff;
+    font-family: 'Aileron thin', sans-serif;
+    text-shadow: 2px 2px 2px #555353;
+    font-size: 19px;
+    margin: 5px 5px 5px 0px;
+    text-align: center;
+}
