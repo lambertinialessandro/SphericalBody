@@ -1,15 +1,34 @@
-import BodyCommands from "./BodyCommands/BodyCommands";
-import BodySingle from "./BodySingle/BodySingle";
+import { Switch, Route, Redirect } from "react-router-dom";
+import BodyMultipleCommand from "./BodyMultipleCommand/BodyMultipleCommand";
+import BodySingleCommand from "./BodySingleCommand/BodySingleCommand";
+import Home from "./Home/Home";
+import Test from "./Test";
 
 function App() {
-  const isBodySingle = false;
-  const isBodyCommands = true;
-
   return (
-    <div>
-      {isBodySingle && <BodySingle />}
-      {isBodyCommands && <BodyCommands />}
-    </div>
+    <Switch>
+      <Route path="/" exact>
+        <Redirect to="/home" />
+      </Route>
+
+      <Route path="/home">
+        <Home />
+      </Route>
+      <Route path="/SingleCommand">
+        <BodySingleCommand />
+      </Route>
+      <Route path="/MultipleCommand">
+        <BodyMultipleCommand />
+      </Route>
+
+      <Route path="/Test">
+        <Test />
+      </Route>
+
+      <Route path="*">
+        <Redirect to="/home" />
+      </Route>
+    </Switch>
   );
 }
 
