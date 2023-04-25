@@ -1,6 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import BodyMultipleCommand from "./BodyMultipleCommand/BodyMultipleCommand";
 import BodySingleCommand from "./BodySingleCommand/BodySingleCommand";
+
 import BodyCommand from "./BodyCommand/BodyCommand";
 import {
   reducerBody as reducer_SR,
@@ -10,13 +11,15 @@ import {
   reducerBody as reducer_MR,
   initialState as initialState_MR,
 } from "./BodyCommand/CommandsReducers/MultipleReducer";
+
 import Home from "./Home/Home";
+import FooterButtons from "./BodyMultipleCommand/FooterButtons";
 
 function App() {
   const links = [
     {
       key: "SingleCommand",
-      path: "/SingleCommand",
+      path: "/SphericalBody/SingleCommand",
       component: (
         <BodyCommand reducer={reducer_SR} initialState={initialState_SR} />
       ),
@@ -25,7 +28,7 @@ function App() {
     },
     {
       key: "MultipleCommand",
-      path: "/MultipleCommand",
+      path: "/SphericalBody/MultipleCommand",
       component: (
         <BodyCommand
           reducer={reducer_MR}
@@ -38,14 +41,14 @@ function App() {
     },
     {
       key: "Duo",
-      path: "/Duo",
+      path: "/SphericalBody/Duo",
       component: <BodyCommand />,
       title: "Duo",
       subTitle: "Duo",
     },
     {
       key: "Documentation",
-      path: "/Documentation",
+      path: "/SphericalBody/Documentation",
       component: <BodyCommand />,
       title: "Documentation",
       subTitle: "Documentation",
@@ -62,17 +65,20 @@ function App() {
   return (
     <Switch>
       <Route path="/" exact>
+        {console.log('path="/"')}
         <Redirect to="/home" />
       </Route>
 
-      <Route path="/home">
+      <Route path="/SphericalBody/home">
+        {console.log('path="/home"')}
         <Home links={homeLinks} />
       </Route>
 
       {pages}
 
       <Route path="*">
-        <Redirect to="/home" />
+        {console.log('path="*"')}
+        <Redirect to="/SphericalBody/home" />
       </Route>
     </Switch>
   );
