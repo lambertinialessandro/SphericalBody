@@ -3,9 +3,7 @@ import CircleButton from "../CircleButton/CircleButton";
 
 import classes from "./BodyClick.module.css";
 
-function BodyClick(props) {
-  const { stateBody, dispatch } = props;
-
+function BodyClick({ videoRef, stateBody, dispatch }) {
   const generateActions = (action1, action2, action3) => {
     return [
       {
@@ -39,13 +37,13 @@ function BodyClick(props) {
       classesCircle: classes.circleHead,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "HEAD", task: "FLOATING" });
+          dispatch({ videoRef, type: "HEAD", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "HEAD", task: "REJECTING" });
+          dispatch({ videoRef, type: "HEAD", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "HEAD", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "HEAD", task: "SUPPORTING" });
         }
       ),
       text: stateBody.headText,
@@ -57,13 +55,13 @@ function BodyClick(props) {
       classesCircle: classes.circleChest,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "CHEST", task: "FLOATING" });
+          dispatch({ videoRef, type: "CHEST", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "CHEST", task: "REJECTING" });
+          dispatch({ videoRef, type: "CHEST", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "CHEST", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "CHEST", task: "SUPPORTING" });
         }
       ),
       text: stateBody.chestText,
@@ -75,13 +73,13 @@ function BodyClick(props) {
       classesCircle: classes.circlePelvis,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "PELVIS", task: "FLOATING" });
+          dispatch({ videoRef, type: "PELVIS", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "PELVIS", task: "REJECTING" });
+          dispatch({ videoRef, type: "PELVIS", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "PELVIS", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "PELVIS", task: "SUPPORTING" });
         }
       ),
       text: stateBody.pelvisText,
@@ -95,13 +93,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "SHOULDER_R", task: "FLOATING" });
+          dispatch({ videoRef, type: "SHOULDER_R", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "SHOULDER_R", task: "REJECTING" });
+          dispatch({ videoRef, type: "SHOULDER_R", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "SHOULDER_R", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "SHOULDER_R", task: "SUPPORTING" });
         }
       ),
       text: stateBody.ShoulderRText,
@@ -113,13 +111,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "ELBOW_R", task: "FLOATING" });
+          dispatch({ videoRef, type: "ELBOW_R", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "ELBOW_R", task: "REJECTING" });
+          dispatch({ videoRef, type: "ELBOW_R", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "ELBOW_R", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "ELBOW_R", task: "SUPPORTING" });
         }
       ),
       text: stateBody.ElbowRText,
@@ -131,13 +129,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "HAND_R", task: "FLOATING" });
+          dispatch({ videoRef, type: "HAND_R", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "HAND_R", task: "REJECTING" });
+          dispatch({ videoRef, type: "HAND_R", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "HAND_R", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "HAND_R", task: "SUPPORTING" });
         }
       ),
       text: stateBody.HandRText,
@@ -151,13 +149,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "SHOULDER_L", task: "FLOATING" });
+          dispatch({ videoRef, type: "SHOULDER_L", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "SHOULDER_L", task: "REJECTING" });
+          dispatch({ videoRef, type: "SHOULDER_L", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "SHOULDER_L", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "SHOULDER_L", task: "SUPPORTING" });
         }
       ),
       text: stateBody.ShoulderLText,
@@ -169,13 +167,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "ELBOW_L", task: "FLOATING" });
+          dispatch({ videoRef, type: "ELBOW_L", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "ELBOW_L", task: "REJECTING" });
+          dispatch({ videoRef, type: "ELBOW_L", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "ELBOW_L", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "ELBOW_L", task: "SUPPORTING" });
         }
       ),
       text: stateBody.ElbowLText,
@@ -187,13 +185,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "HAND_L", task: "FLOATING" });
+          dispatch({ videoRef, type: "HAND_L", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "HAND_L", task: "REJECTING" });
+          dispatch({ videoRef, type: "HAND_L", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "HAND_L", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "HAND_L", task: "SUPPORTING" });
         }
       ),
       text: stateBody.HandLText,
@@ -207,13 +205,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "KNEE_R", task: "FLOATING" });
+          dispatch({ videoRef, type: "KNEE_R", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "KNEE_R", task: "REJECTING" });
+          dispatch({ videoRef, type: "KNEE_R", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "KNEE_R", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "KNEE_R", task: "SUPPORTING" });
         }
       ),
       text: stateBody.KneeRText,
@@ -225,13 +223,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "FOOT_R", task: "FLOATING" });
+          dispatch({ videoRef, type: "FOOT_R", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "FOOT_R", task: "REJECTING" });
+          dispatch({ videoRef, type: "FOOT_R", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "FOOT_R", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "FOOT_R", task: "SUPPORTING" });
         }
       ),
       text: stateBody.FootRText,
@@ -245,13 +243,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "KNEE_L", task: "FLOATING" });
+          dispatch({ videoRef, type: "KNEE_L", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "KNEE_L", task: "REJECTING" });
+          dispatch({ videoRef, type: "KNEE_L", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "KNEE_L", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "KNEE_L", task: "SUPPORTING" });
         }
       ),
       text: stateBody.KneeLText,
@@ -263,13 +261,13 @@ function BodyClick(props) {
       classesCircle: classes.circleSmall,
       onClicks: generateActions(
         () => {
-          dispatch({ type: "FOOT_L", task: "FLOATING" });
+          dispatch({ videoRef, type: "FOOT_L", task: "FLOATING" });
         },
         () => {
-          dispatch({ type: "FOOT_L", task: "REJECTING" });
+          dispatch({ videoRef, type: "FOOT_L", task: "REJECTING" });
         },
         () => {
-          dispatch({ type: "FOOT_L", task: "SUPPORTING" });
+          dispatch({ videoRef, type: "FOOT_L", task: "SUPPORTING" });
         }
       ),
       text: stateBody.FootLText,
