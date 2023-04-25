@@ -4,13 +4,13 @@ import classes from "./Header.module.css";
 function Header() {
   return (
     <div className={classes.mainText}>
-      <h1 className={classes.mainTitle}>Ballet Dancing</h1>
+      <img className={classes.mainTitle} src="./images/title_black.png"></img>
       <NavLink
         className={classes.backButton}
         activeClassName={""}
         to={"./home"}
       >
-        {"<- Back"}
+        {"Home"}
       </NavLink>
     </div>
   );

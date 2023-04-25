@@ -1,6 +1,6 @@
 import classes from "./BodyVideo.module.css";
 
-const videoSubject = "./video/test/";
+const videoSubject = "./video/subject1/";
 
 function BodyVideo(props) {
   const { videoRef, onEnded, src } = props;

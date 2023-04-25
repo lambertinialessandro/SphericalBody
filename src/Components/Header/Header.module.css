@@ -9,33 +9,86 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
-    background-image: linear-gradient(45deg, #6303B1, #ff0099);
-    background-image: linear-gradient(225deg, #f7d8ff, #6303b1);
-    background-image: repeating-linear-gradient(225deg, #583562, #6303b1 100px);
-    background-image: linear-gradient(45deg, #c01f01, #fff500);
-    background-image: linear-gradient(45deg, #391601, #ff5e00);
-    background-image: linear-gradient(225deg, #fff4d8, #d76c16);
-    background-image: repeating-linear-gradient(225deg, #cb7245, #b14d03 100px);
+    background: #07827f;
+    background: linear-gradient( to bottom, #ffffff00 calc(50% - 5px), #07827f calc(50% - 5px), #07827f calc(50% + 5px), #ffffff calc(50% + 5px));
 }
 
 .mainTitle{
-    font-family: 'Great Vibes', 'Libre Baskerville', serif;
-    font-size: 45px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    color: #f8f6f1;
-    text-shadow: 2px 2px 2px #555353;
+    width: 500px;
+    height: 200px;
+    object-fit: cover;
 }
 
 .backButton{
     text-decoration: none;
-    color: #f8f6f1;
+    background: #07827f;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none;
+    user-select: none;
+    position: relative;
+    left: -100%;
+    animation: entering 2s forwards ease-in-out, floatingX 2s 2s infinite linear, floatingY 3s 2s infinite linear;
+
+    color: #ffffff;
     text-shadow: 2px 2px 2px #555353;
-    background: #f2ab6f;
-    border-radius: 25px 25px 25px 0px;
-    padding: 10px 15px 10px 15px;
-    box-shadow: 3px 3px 20px 0px #00000036;
+    font-family: 'Aileron thin', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 100px;
+}
+.backButton:before {
+    content: "";
+    position: absolute;
+    background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    bottom: 2.5%;
+    left: 5%;
+    opacity: 0.5;
+    height: 100%;
+    width: 90%;
+    filter: blur(5px);
+    z-index: 2;
+    transition: all 2s ease-in-out;
+}
+.backButton:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 5%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6) 14%, rgba(255, 255, 255, 0) 24%);
+    transform: translateX(30px) translateY(-30px) skewX(20deg);
+    filter: blur(10px);
+    transition: all 2s ease-in-out;
+}
+
+@keyframes entering {
+    0% {position: relative; left: -100%;}
+    80% {left: 20%;}
+    100% {position: relative; left: 0%;}
+}
+
+@keyframes floatingX {
+    0% {left: 0px;}
+    33% {left: 2.5px;}
+    66% {left: -2.5px;}
+    100% {left: 0px;}
+}
+
+@keyframes floatingY {
+    0% {top: 0px;}
+    33% {top: 2.5px;}
+    66% {top: -2.5px;}
+    100% {top: 0px;}
 }
