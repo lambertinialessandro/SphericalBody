@@ -1,16 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
+
+import HeaderHome from "./HeaderHome";
 import ButtonLink from "./ButtonLink";
 
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 import classes from "./Home.module.css";
-import FullscreenExpandingDiv from "./test";
 
 function Home({ links }) {
+  const history = useHistory();
+
   const homeRef = useRef(null);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const handleWheel = (event) => {
       event.preventDefault();
       const delta = 30;
@@ -35,20 +39,42 @@ function Home({ links }) {
     homeRef.current.addEventListener("wheel", handleWheel);
     /* return () => {
       homeRef.current.removeEventListener("onmousedown", handleWheel);
-    }; */
-  }, []);
-
-  const [numReduced, setNumReduced] = useState(null);
-  const reduceOther = (idx) => {
-    setNumReduced(idx);
-  };
+    }; * /
+  }, []); */
 
   const particlesInit = async (main) => {
     await loadFull(main);
   };
 
+  const divFSM = useRef(null);
+  function openFSM(event, path) {
+    const currentTarget = event.currentTarget;
+    const currentDivFSM = divFSM.current;
+
+    const position = currentTarget.getBoundingClientRect();
+    const size = {
+      width: window.getComputedStyle(currentTarget).width,
+      height: window.getComputedStyle(currentTarget).height,
+    };
+
+    homeRef.current.classList.add(classes.hiddenOverflowX);
+
+    currentDivFSM.style.top = position.top + "px";
+    currentDivFSM.style.left = position.left + "px";
+    currentDivFSM.style.height = size.height;
+    currentDivFSM.style.width = size.width;
+    currentDivFSM.style.margin = currentTarget.style.margin;
+    currentDivFSM.innerHTML = currentTarget.innerHTML;
+
+    currentDivFSM.classList.add(classes.fullscreen);
+
+    setTimeout(() => {
+      history.push(path);
+    }, 2200);
+  }
+
   return (
-    <div id="home" className="" ref={homeRef}>
+    <div id="home" ref={homeRef}>
       {/* https://vincentgarreau.com/particles.js/#default */}
       <Particles
         className={classes.particles}
@@ -165,23 +191,14 @@ function Home({ links }) {
           retina_detect: true,
         }}
       />
-      <div className={classes.mainTitle}>
-        <img
-          className={classes.mainTitleSphere}
-          src="./images/title_sphere_color.png"
-        ></img>
-        <img
-          className={classes.mainTitleText}
-          src="./images/title_color.png"
-        ></img>
-      </div>
+      <HeaderHome />
       <div className={classes.divButtons}>
-        <div className={classes.buttones}>
+        <div className={classes.buttons}>
           {links.map((link) => (
-            <ButtonLink {...{ reduceOther, numReduced, ...link }} />
+            <ButtonLink {...{ ...link, onClick: openFSM }} />
           ))}
-          {/* <FullscreenExpandingDiv /> */}
         </div>
+        <div className={classes.fsm_actual} ref={divFSM}></div>
       </div>
     </div>
   );

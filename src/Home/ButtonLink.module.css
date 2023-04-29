@@ -14,28 +14,53 @@
 
     position: relative;
     left: -100%;
-    animation: entering 2s forwards ease-in-out;
+    animation: entering 2s forwards ease-in-out, floatingX 2s infinite linear, floatingY 3s infinite linear;
 }
+
+.cardLinkBox:before {
+    content: "";
+    position: absolute;
+    background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    bottom: 2.5%;
+    left: 5%;
+    opacity: 0.5;
+    height: 100%;
+    width: 90%;
+    filter: blur(5px);
+    z-index: 2;
+}
+.cardLinkBox:after {
+    content: "";
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 5%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) 14%, rgba(255, 255, 255, 0) 24%);
+    transform: translateX(80px) translateY(-90px) skewX(20deg);
+    filter: blur(10px);
+}
+
 .floating{
     animation: floatingX 2s 3s infinite linear, floatingY 3s 3s infinite linear;
 }
 
 .cardLinkBox:nth-child(1){
-    animation-delay: 0.7s;
+    animation-delay: 0.7s, 2.7s, 2.7s;
 }
 .cardLinkBox:nth-child(2){
-    animation-delay: 0.5s;
+    animation-delay: 0.5s, 2.5s, 2.5s;
 }
 .cardLinkBox:nth-child(3){
-    animation-delay: 0.3s;
+    animation-delay: 0.3s, 2.3s, 2.3s;
 }
 .cardLinkBox:nth-child(4){
-    animation-delay: 0.1s;
+    animation-delay: 0.1s, 2.1s, 2.1s;
 }
 
-
 @keyframes entering {
-    0% {position: relative; left: -100%;}
+    0% {position: relative; left: -100%; }
     80% {left: 20%;}
     100% {position: relative; left: 0%;}
 }
@@ -63,8 +88,23 @@
     margin: 0 !important;
     padding: 0 !important;
     border-radius: 0;
+    z-index: 10;
 
     transition: 1s ease-in-out;
+    animation: none;
+}
+.fullscreen:before {
+    background: none;
+}
+.fullscreen:after {
+    background: none;
+}
+
+
+.reduceNoFullscreen{
+    width: 0;
+    margin: 0;
+    animation: none;
 }
 
 .cardLinkBox:nth-of-type(1){

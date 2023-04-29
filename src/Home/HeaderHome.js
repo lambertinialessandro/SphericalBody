@@ -2,15 +2,15 @@ import classes from "./HeaderHome.module.css";
 
 function HeaderHome() {
   return (
-    <div className={classes.mainText}>
-      <div className={classes.mainTextContent}>
-        <h1 className={classes.mainTitle}>Staging an accumulation process</h1>
-        <p className={classes.mainSubTitle}>
-          Presentation by:
-          <br />
-          Fernando Domínguez Rincon
-        </p>
-      </div>
+    <div className={classes.mainTitle}>
+      <img
+        className={classes.mainTitleSphere}
+        src="./images/title_sphere_color.png"
+      ></img>
+      <img
+        className={classes.mainTitleText}
+        src="./images/title_color.png"
+      ></img>
     </div>
   );
 }

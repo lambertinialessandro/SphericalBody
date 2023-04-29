@@ -1,25 +1,14 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-
 import classes from "./ButtonLink.module.css";
 
 function ButtonLink(props) {
-  const { to, title, subTitle } = props;
-  const history = useHistory();
-
-  const [clicked, setClicked] = useState(false);
-
-  const handleTransitionEnd = () => {
-    if (clicked) {
-      // history.push(to);
-    }
-  };
+  const { path, title, subTitle, onClick } = props;
 
   return (
     <div
-      className={`${classes.cardLinkBox} ${clicked && classes.fullscreen}`}
-      onTransitionEnd={handleTransitionEnd}
-      onClick={() => setClicked(true)}
+      className={`${classes.cardLinkBox}`}
+      onClick={(event) => {
+        onClick(event, path);
+      }}
     >
       <div className={classes.linkTextContext}>
         <h4 className={classes.linkTitle}>{title}</h4>
