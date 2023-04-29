@@ -141,3 +141,16 @@
     margin: 5px 5px 5px 0px;
     text-align: center;
 }
+
+
+@media screen and (max-width: 1200px){
+    .cardLinkBox:nth-of-type(1){
+        margin: 100px 0px 0px 0px;
+    }
+    .cardLinkBox:nth-of-type(n):not(:first-of-type):not(:last-of-type){
+        margin: 50px 0px 0px 0px;
+    }
+    .cardLinkBox:nth-last-of-type(1){
+        margin: 50px 0px 100px 0px;
+    }
+}

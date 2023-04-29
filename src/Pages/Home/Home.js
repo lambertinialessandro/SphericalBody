@@ -74,7 +74,7 @@ function Home({ links }) {
   }
 
   return (
-    <div id="home" ref={homeRef}>
+    <div className={classes.home} ref={homeRef}>
       {/* https://vincentgarreau.com/particles.js/#default */}
       <Particles
         className={classes.particles}
@@ -192,8 +192,8 @@ function Home({ links }) {
         }}
       />
       <HeaderHome />
-      <div className={classes.divButtons}>
-        <div className={classes.buttons}>
+      <div className={classes.containerContext}>
+        <div className={classes.containerButtons}>
           {links.map((link) => (
             <ButtonLink {...{ ...link, onClick: openFSM }} />
           ))}

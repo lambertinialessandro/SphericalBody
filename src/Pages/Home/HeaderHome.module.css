@@ -21,3 +21,28 @@
     object-fit: cover;
     margin-top: 50px;
 }
+
+@media (max-width: 768px) {
+    .mainTitle{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        background: white;
+        z-index: 2;
+
+        margin-bottom: 300px;
+    }
+    .mainTitleSphere{
+        width: 150px;
+        min-width: 150px;
+        height: 150px;
+    }
+    .mainTitleText{
+        width: 400px;
+        min-width: 400px;
+        height: 100px;
+        margin-top: 25px;
+    }
+}

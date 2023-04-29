@@ -1,5 +1,6 @@
 
 html{
+    overflow-x: initial;
     overflow-y: hidden;
 }
 
@@ -11,7 +12,7 @@ html{
     opacity: 0.5;
 }
 
-.buttons{
+.containerButtons{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -55,6 +56,30 @@ html{
         margin: 0;
         padding: 0;
         border-radius: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    html{
+        overflow-x: hidden;
+        overflow-y: initial;
+    }
+
+    .home{
+        overflow-y: scroll;
+    }
+
+    .containerContext{
+        padding-top: 300px;
+    }
+
+    .containerButtons{
+        flex-direction: column;
+        height: fit-content;
+        width: 100vw;
+        min-height: 100vh;
+
+        background: linear-gradient( to right, #ffffff00 calc(50% - 5px), #07827f calc(50% - 5px), #07827f calc(50% + 5px), #ffffff00  calc(50% + 5px))
     }
 }
 
