@@ -2,7 +2,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // import BodyMultipleCommand from "./BodyMultipleCommand/BodyMultipleCommand";
 // import BodySingleCommand from "./BodySingleCommand/BodySingleCommand";
 
-import BodyCommand from "./BodyCommand/BodyCommand";
 import {
   reducerBody as reducer_SR,
   initialState as initialState_SR,
@@ -15,6 +14,9 @@ import {
 } from "./BodyCommand/CommandsReducers/MultipleReducer";
 
 import Home from "./Home/Home";
+
+import SubPageWrapper from "./Components/SubPageWrapper/SubPageWrapper";
+import BodyCommand from "./BodyCommand/BodyCommand";
 import FooterButtons from "./BodyMultipleCommand/FooterButtons";
 
 function App() {
@@ -66,23 +68,25 @@ function App() {
   });
 
   const pages = links.map(({ key, path, component, title, subTitle }) => (
-    <Route {...{ key, path, title, subTitle }}>{component}</Route>
+    <Route {...{ key, path, title, subTitle }}>
+      <SubPageWrapper>{component}</SubPageWrapper>
+    </Route>
   ));
 
   return (
     <Switch>
       <Route path="/" exact>
-        <Redirect to="/home" />
+        <Redirect to="/Home" />
       </Route>
 
-      <Route path="/SphericalBody/home">
+      <Route path="/SphericalBody/Home">
         <Home links={homeLinks} />
       </Route>
 
       {pages}
 
       <Route path="*">
-        <Redirect to="/SphericalBody/home" />
+        <Redirect to="/SphericalBody/Home" />
       </Route>
     </Switch>
   );
