@@ -6,18 +6,21 @@ import {
   reducerBody as reducer_SR,
   initialState as initialState_SR,
   leftText as leftText_SR,
-} from "./BodyCommand/CommandsReducers/SingleReducer";
+} from "./Pages/BodyCommand/CommandsReducers/SingleReducer";
 import {
   reducerBody as reducer_MR,
   initialState as initialState_MR,
   leftText as leftText_MR,
-} from "./BodyCommand/CommandsReducers/MultipleReducer";
+} from "./Pages/BodyCommand/CommandsReducers/MultipleReducer";
 
-import Home from "./Home/Home";
+import Home from "./Pages/Home/Home";
 
 import SubPageWrapper from "./Components/SubPageWrapper/SubPageWrapper";
-import BodyCommand from "./BodyCommand/BodyCommand";
-import FooterButtons from "./BodyMultipleCommand/FooterButtons";
+import BodyCommand from "./Pages/BodyCommand/BodyCommand";
+import FooterButtons from "./Pages/BodyCommand/FooterButtons";
+
+import Duo from "./Pages/Duo/Duo";
+import Documentation from "./Pages/Documentation/Documentation";
 
 function App() {
   const links = [
@@ -51,14 +54,14 @@ function App() {
     {
       key: "Duo",
       path: "/SphericalBody/Duo",
-      component: <BodyCommand />,
+      component: <Duo />,
       title: "Duo",
       subTitle: "Duo",
     },
     {
       key: "Documentation",
       path: "/SphericalBody/Documentation",
-      component: <BodyCommand />,
+      component: <Documentation />,
       title: "Documentation",
       subTitle: "Documentation",
     },
