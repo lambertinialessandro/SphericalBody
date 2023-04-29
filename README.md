@@ -1,6 +1,7 @@
 # 2023 The Spherical Body
 
 > Fernando Domínguez Rincón
+>
 > Alessandro Lambertini;
 
 ## 🙋 Info
