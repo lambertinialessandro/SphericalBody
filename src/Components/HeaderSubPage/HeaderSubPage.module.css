@@ -1,10 +1,8 @@
 .mainText{
     width: 100%;
-
-    height: 100px;
-    /* position: fixed; */
-
     min-width: 390px;
+    height: 100px;
+    margin: 10px 0px;
 
     display: flex;
     flex-direction: row;
@@ -12,7 +10,6 @@
     justify-content: space-between;
     align-items: center;
 
-    background: #07827f;
     background: linear-gradient( to bottom, #ffffff00 calc(50% - 5px), #07827f calc(50% - 5px), #07827f calc(50% + 5px), #ffffff calc(50% + 5px));
 }
 
@@ -28,13 +25,16 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     -webkit-user-select: none;
+
     user-select: none;
     position: relative;
+
     left: -100%;
     animation: entering 2s forwards ease-in-out, floatingX 2s 2s infinite linear, floatingY 3s 2s infinite linear;
 
@@ -44,7 +44,9 @@
     font-size: 30px;
     font-weight: bold;
     text-align: center;
+    
     margin-right: 100px;
+    margin: 0px 25px 0px 0px;
 }
 .backButton:before {
     content: "";
@@ -92,3 +94,23 @@
     66% {top: -2.5px;}
     100% {top: 0px;}
 }
+
+@media screen and (max-width: 768px) {
+    .mainText{
+        height: 100px;
+        margin-top: 15px;
+    }
+
+    .mainTitle{
+        width: 350px;
+        height: 100px;
+    }
+
+    .backButton{
+        width: 100px;
+        min-width: 100px;
+        min-height: 100px;
+        margin: 0px 25px 0px 0px;
+    }
+}
+

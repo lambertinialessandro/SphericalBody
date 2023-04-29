@@ -68,6 +68,8 @@ html{
 
     .home{
         overflow-y: scroll;
+        width: 100vh;
+        max-width: fit-content;
     }
 
     .containerContext{
@@ -79,8 +81,32 @@ html{
         height: fit-content;
         width: 100vw;
         min-height: 100vh;
+        margin: auto;
 
         background: linear-gradient( to right, #ffffff00 calc(50% - 5px), #07827f calc(50% - 5px), #07827f calc(50% + 5px), #ffffff00  calc(50% + 5px))
+    }
+
+    .fullscreen{
+        animation: anim_fullscreen 2s forwards ease-in-out;
+    }
+
+    @keyframes anim_fullscreen {
+        50%{
+            width: 100vw;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+        }
+        100% {
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+        }
     }
 }
 

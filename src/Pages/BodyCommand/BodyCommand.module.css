@@ -52,3 +52,9 @@
     margin: 5px 5px 5px 0px;
     text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+    .Container{
+        flex-direction: column;
+    }
+}

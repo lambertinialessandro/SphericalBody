@@ -122,3 +122,9 @@
   top: 508px;
 }
 
+
+@media screen and (max-width: 768px) {
+  .divBody{
+    margin-bottom: 25px;
+  }
+}
