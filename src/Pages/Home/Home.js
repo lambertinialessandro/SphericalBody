@@ -56,17 +56,20 @@ function Home({ links }) {
       width: window.getComputedStyle(currentTarget).width,
       height: window.getComputedStyle(currentTarget).height,
     };
+    const h = window.pageYOffset;
 
-    homeRef.current.classList.add(classes.hiddenOverflowX);
-
-    currentDivFSM.style.top = position.top + "px";
+    currentDivFSM.style.top = position.top + h + "px";
     currentDivFSM.style.left = position.left + "px";
     currentDivFSM.style.height = size.height;
     currentDivFSM.style.width = size.width;
-    currentDivFSM.style.margin = currentTarget.style.margin;
+
+    currentDivFSM.style.marginTop = currentTarget.style.marginTop;
+
     currentDivFSM.innerHTML = currentTarget.innerHTML;
 
     currentDivFSM.classList.add(classes.fullscreen);
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     setTimeout(() => {
       history.push(path);

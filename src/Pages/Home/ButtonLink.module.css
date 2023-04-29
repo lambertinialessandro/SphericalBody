@@ -13,7 +13,6 @@
     user-select: none;
 
     position: relative;
-    left: -100%;
     animation: entering 2s forwards ease-in-out, floatingX 2s infinite linear, floatingY 3s infinite linear;
 }
 
@@ -59,10 +58,17 @@
     animation-delay: 0.1s, 2.1s, 2.1s;
 }
 
-@keyframes entering {
-    0% {position: relative; left: -100%; }
-    80% {left: 20%;}
-    100% {position: relative; left: 0%;}
+
+@media screen and (min-width: 768px){
+    .cardLinkBox{
+        left: -100%;
+    }
+    
+    @keyframes entering {
+        0% {position: relative; left: -100%; }
+        80% {left: 20%;}
+        100% {position: relative; left: 0%;}
+    }
 }
 
 @keyframes floatingX {
@@ -143,7 +149,11 @@
 }
 
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 768px){
+    .cardLinkBox{
+        top: -200vh;
+    }
+
     .cardLinkBox:nth-of-type(1){
         margin: 100px 0px 0px 0px;
     }
@@ -152,5 +162,11 @@
     }
     .cardLinkBox:nth-last-of-type(1){
         margin: 50px 0px 100px 0px;
+    }
+        
+    @keyframes entering {
+        0% {position: relative; top: -200vh; }
+        80% {top: 100px;}
+        100% {position: relative; top: 0px;}
     }
 }

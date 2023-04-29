@@ -39,8 +39,9 @@ html{
     user-select: none;
 }
 
-.hiddenOverflowX{
-    overflow-x: hidden;
+.hiddenOverflow{
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
 }
 
 .fullscreen{
@@ -70,7 +71,7 @@ html{
     }
 
     .containerContext{
-        padding-top: 300px;
+        padding-top: 250px;
     }
 
     .containerButtons{

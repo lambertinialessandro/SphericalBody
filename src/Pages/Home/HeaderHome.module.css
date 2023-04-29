@@ -28,21 +28,28 @@
         align-items: center;
         justify-content: center;
         width: 100%;
+        height: 250px;
 
         background: white;
         z-index: 2;
-
-        margin-bottom: 300px;
     }
     .mainTitleSphere{
-        width: 150px;
-        min-width: 150px;
-        height: 150px;
+        min-width: initial;
+        width: 100%;
+        max-width: 150px;
+        aspect-ratio: 1/1;
+        height: 100%;
+        margin: auto;
     }
     .mainTitleText{
-        width: 400px;
-        min-width: 400px;
+        min-width: initial;
+        width: 100%;
+        max-width: 400px;
+
         height: 100px;
         margin-top: 25px;
+
+        margin: auto;
+        padding: 0 20px;
     }
 }
