@@ -1,8 +1,8 @@
-.Tutorial{
+.TextArea{
     width: 33%;
     background: #07827f;
 }
-.TutorialTitle{
+.TextAreaTitle{
     color: #ffffff;
     text-shadow: 2px 2px 2px #555353;
     font-family: 'Aileron thin', sans-serif;
@@ -10,7 +10,7 @@
     font-weight: bold;
     text-align: center;
 }
-.TutorialTest{
+.TextAreaText{
     color: #ffffff;
     font-family: 'Aileron thin', sans-serif;
     text-shadow: 2px 2px 2px #555353;

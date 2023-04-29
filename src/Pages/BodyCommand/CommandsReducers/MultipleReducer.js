@@ -342,3 +342,12 @@ export function reducerBody(state, action) {
 
   throw Error("Unknown action.");
 }
+
+export const leftText = {
+  title: "Tutorial",
+  context:
+    " La mappa è composta da un corpo umano schematizzato con dei cerchi nelle articolazioni.\
+  Premendo su uno di questi cerchi, si aprirà un menù a tendina con tre opzioni: descrizione, esercizi e video.\
+  Selezionando l'opzione Video, si verrà reindirizzati a una pagina dove si potrà guardare un video riguardante l'articolazione selezionata e i relativi esercizi. In sostanza,\
+  il tutorial spiega come esplorare la mappa e guardare i video delle articolazioni selezionate.",
+};

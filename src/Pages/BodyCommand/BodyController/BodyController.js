@@ -1,4 +1,4 @@
-import CircleButton from "../../Components/CircleButton/CircleButton";
+import CircleButton from "../../../Components/CircleButton/CircleButton";
 
 import classes from "./BodyController.module.css";
 
