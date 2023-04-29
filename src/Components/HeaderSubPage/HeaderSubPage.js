@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import classes from "./Header.module.css";
+import classes from "./HeaderSubPage.module.css";
 
-function Header() {
+function HeaderSubPage() {
   return (
     <div className={classes.mainText}>
       <img className={classes.mainTitle} src="./images/title_black.png"></img>
       <NavLink
         className={classes.backButton}
         activeClassName={""}
-        to={"./home"}
+        to={"/SphericalBody/Home"}
       >
         {"Home"}
       </NavLink>
@@ -16,4 +16,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderSubPage;
