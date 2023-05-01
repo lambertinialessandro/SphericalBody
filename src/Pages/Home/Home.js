@@ -49,7 +49,6 @@ function Home({ links }) {
   const divFSM = useRef(null);
   function openFSM(event, path) {
     const currentTarget = event.currentTarget;
-    const currentDivFSM = divFSM.current;
 
     const position = currentTarget.getBoundingClientRect();
     const size = {
@@ -58,6 +57,7 @@ function Home({ links }) {
     };
     const h = window.pageYOffset;
 
+    const currentDivFSM = divFSM.current;
     currentDivFSM.style.top = position.top + h + "px";
     currentDivFSM.style.left = position.left + "px";
     currentDivFSM.style.height = size.height;
@@ -67,13 +67,17 @@ function Home({ links }) {
 
     currentDivFSM.innerHTML = currentTarget.innerHTML;
 
+    const includeBlue = currentTarget.className.includes("blue");
+    currentDivFSM.classList.add(
+      includeBlue ? classes.blueColor : classes.yellowColor
+    );
     currentDivFSM.classList.add(classes.fullscreen);
 
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     setTimeout(() => {
       history.push(path);
-    }, 2200);
+    }, 1200);
   }
 
   return (
@@ -93,21 +97,13 @@ function Home({ links }) {
               },
             },
             color: {
-              value: "#07827f",
+              value: ["#08827f", "#c4a91b"],
             },
             shape: {
               type: "circle",
               stroke: {
                 width: 0,
-                color: "#0c7472",
-              },
-              polygon: {
-                nb_sides: 5,
-              },
-              image: {
-                src: "img/github.svg",
-                width: 100,
-                height: 100,
+                color: "#ffffff",
               },
             },
             opacity: {
@@ -133,7 +129,7 @@ function Home({ links }) {
             line_linked: {
               enable: true,
               distance: 150,
-              color: "#07827f",
+              color: "#b6b2b2",
               opacity: 1,
               width: 2,
             },

@@ -10,7 +10,6 @@ const videoSubject = "./video/simone/"; // test, subject1
 
 function BodyCommand({
   title,
-  subtitle,
   leftText,
   reducer,
   initialState /* , footer */,
@@ -19,17 +18,17 @@ function BodyCommand({
 
   const [stateBody, dispatch] = useReducer(reducer, initialState);
 
+  // TODO creare un wrapper per il fade out iniziale
   return (
     <>
       <div className={`${classes.initDiv} z-10`}>
         <div className={classes.linkTextContext}>
           <h4 className={classes.linkTitle}>{title}</h4>
-          <p className={classes.linkSubTitle}>{subtitle}</p>
         </div>
       </div>
 
       <div className={classes.Container}>
-        <BodyText title={leftText.title} context={leftText.context} />
+        <BodyText context={leftText.context} />
         <BodyController
           videoRef={videoRef}
           stateBody={stateBody}

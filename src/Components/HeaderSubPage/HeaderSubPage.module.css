@@ -9,8 +9,21 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+}
 
-    background: linear-gradient( to bottom, #ffffff00 calc(50% - 5px), #07827f calc(50% - 5px), #07827f calc(50% + 5px), #ffffff calc(50% + 5px));
+.divImagesHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.mainTitleSphere{
+    background: #ffffff80;
+    border-radius: 25px;
+    box-shadow: 0 0 13px 4px #ffffff80;
+    width: 200px;
+    min-width: 200px;
+    height: 200px;
 }
 
 .mainTitle{
@@ -21,7 +34,8 @@
 
 .backButton{
     text-decoration: none;
-    background: #07827f;
+    background: #ffffff;
+    border: 5px solid #07827f;
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -38,41 +52,14 @@
     left: -100%;
     animation: entering 2s forwards ease-in-out, floatingX 2s 2s infinite linear, floatingY 3s 2s infinite linear;
 
-    color: #ffffff;
-    text-shadow: 2px 2px 2px #555353;
-    font-family: 'Aileron thin', sans-serif;
-    font-size: 30px;
-    font-weight: bold;
+    color: #000000;
+    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
+    font-size: 25px;
+    /* font-weight: bold; */
     text-align: center;
     
     margin-right: 100px;
     margin: 0px 25px 0px 0px;
-}
-.backButton:before {
-    content: "";
-    position: absolute;
-    background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
-    border-radius: 50%;
-    bottom: 2.5%;
-    left: 5%;
-    opacity: 0.5;
-    height: 100%;
-    width: 90%;
-    filter: blur(5px);
-    z-index: 2;
-    transition: all 2s ease-in-out;
-}
-.backButton:after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 5%;
-    border-radius: 50%;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6) 14%, rgba(255, 255, 255, 0) 24%);
-    transform: translateX(30px) translateY(-30px) skewX(20deg);
-    filter: blur(10px);
-    transition: all 2s ease-in-out;
 }
 
 @keyframes entering {

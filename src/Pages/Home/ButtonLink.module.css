@@ -1,6 +1,5 @@
 .cardLinkBox{
     text-decoration: none;
-    background: #07827f;
     height: 250px;
     width: 250px;
     border-radius: 50%;
@@ -14,32 +13,35 @@
 
     position: relative;
     animation: entering 2s forwards ease-in-out, floatingX 2s infinite linear, floatingY 3s infinite linear;
+
+    outline-offset: -125px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.cardLinkBox:before {
-    content: "";
-    position: absolute;
-    background: radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%);
-    border-radius: 50%;
-    bottom: 2.5%;
-    left: 5%;
-    opacity: 0.5;
-    height: 100%;
-    width: 90%;
-    filter: blur(5px);
-    z-index: 2;
+.blueColor{
+    background: #ffffff;
+    border: 7px solid #07827f;
 }
-.cardLinkBox:after {
-    content: "";
-    width: 80%;
-    height: 100%;
-    position: absolute;
-    top: 5%;
-    border-radius: 50%;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) 14%, rgba(255, 255, 255, 0) 24%);
-    transform: translateX(80px) translateY(-90px) skewX(20deg);
-    filter: blur(10px);
+.blueColor:hover{
+    background: #07827f;
+    transition: all 250ms ease-in-out;
+
+    outline: 8px solid #07827f;
+    outline-offset: 14px;
 }
+.yellowColor{
+    background: #ffffff;
+    border: 7px solid #c4a91b;
+}
+.yellowColor:hover{
+    background: #c4a91b;
+    transition: all 250ms ease-in-out;
+
+    outline: 8px solid #c4a91b;
+    outline-offset: 14px;
+}
+
 
 .floating{
     animation: floatingX 2s 3s infinite linear, floatingY 3s 3s infinite linear;
@@ -99,12 +101,6 @@
     transition: 1s ease-in-out;
     animation: none;
 }
-.fullscreen:before {
-    background: none;
-}
-.fullscreen:after {
-    background: none;
-}
 
 
 .reduceNoFullscreen{
@@ -132,19 +128,10 @@
 }
 
 .linkTitle{
-    color: #ffffff;
-    text-shadow: 2px 2px 2px #555353;
-    font-family: 'Aileron thin', sans-serif;
-    font-size: 30px;
+    color: #000000;
+    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
+    font-size: 23px;
     font-weight: bold;
-    text-align: center;
-}
-.linkSubTitle{
-    color: #ffffff;
-    font-family: 'Aileron thin', sans-serif;
-    text-shadow: 2px 2px 2px #555353;
-    font-size: 19px;
-    margin: 5px 5px 5px 0px;
     text-align: center;
 }
 

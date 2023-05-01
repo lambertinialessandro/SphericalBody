@@ -13,65 +13,54 @@ import {
   leftText as leftText_MR,
 } from "./Pages/BodyCommand/CommandsReducers/MultipleReducer";
 
-import Home from "./Pages/Home/Home";
-
 import SubPageWrapper from "./Components/SubPageWrapper/SubPageWrapper";
-import BodyCommand from "./Pages/BodyCommand/BodyCommand";
-import FooterButtons from "./Pages/BodyCommand/FooterButtons";
 
-import Duo from "./Pages/Duo/Duo";
-import Documentation from "./Pages/Documentation/Documentation";
+import Home from "./Pages/Home/Home";
+import SphericalSystem from "./Pages/SphericalSystem/SphericalSystem";
+import BodyCommand from "./Pages/BodyCommand/BodyCommand";
+import Abstract from "./Pages/Abstract/Abstract";
+import Documentary from "./Pages/Documentary/Documentary";
 
 function App() {
   const links = [
     {
-      key: "SingleCommand",
-      path: "/SphericalBody/SingleCommand",
-      component: (
-        <BodyCommand
-          reducer={reducer_SR}
-          initialState={initialState_SR}
-          leftText={leftText_SR}
-        />
-      ),
-      title: "Single Command",
-      subTitle: "There will be shown one command at a time",
+      key: "ABSTRACT",
+      path: "/SphericalBody/Abstract",
+      component: <Abstract />,
+      title: "ABSTRACT",
     },
     {
-      key: "MultipleCommand",
+      key: "APP",
       path: "/SphericalBody/MultipleCommand",
       component: (
         <BodyCommand
+          title="APP"
           reducer={reducer_MR}
           initialState={initialState_MR}
           leftText={leftText_MR}
-          footer={<FooterButtons />}
         />
       ),
-      title: "Multiple Command",
-      subTitle: "There will be shown many commands one after the other",
+      title: "APP",
     },
     {
-      key: "Duo",
-      path: "/SphericalBody/Duo",
-      component: <Duo />,
-      title: "Duo",
-      subTitle: "Duo",
+      key: "SPHERICAL_SYSTEM",
+      path: "/SphericalBody/SphericalSystem",
+      component: <SphericalSystem />,
+      title: "SPHERICAL SYSTEM",
     },
     {
-      key: "Documentation",
-      path: "/SphericalBody/Documentation",
-      component: <Documentation />,
-      title: "Documentation",
-      subTitle: "Documentation",
+      key: "DOCUMENTARY",
+      path: "/SphericalBody/Documentary",
+      component: <Documentary />,
+      title: "DOCUMENTARY",
     },
   ];
-  const homeLinks = links.map(({ key, path, title, subTitle }) => {
-    return { key, path, title, subTitle };
+  const homeLinks = links.map(({ key, path, title }, index) => {
+    return { key, index, path, title };
   });
 
-  const pages = links.map(({ key, path, component, title, subTitle }) => (
-    <Route {...{ key, path, title, subTitle }}>
+  const pages = links.map(({ key, path, component, title }) => (
+    <Route {...{ key, path, title }}>
       <SubPageWrapper>{component}</SubPageWrapper>
     </Route>
   ));

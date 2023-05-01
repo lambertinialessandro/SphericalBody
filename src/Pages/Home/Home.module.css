@@ -19,8 +19,6 @@ html{
     align-items: center;
     height: 100vh;
     min-width: fit-content;
-
-    background: linear-gradient( to bottom, #ffffff00 calc(50% - 5px), #07827f calc(50% - 5px), #07827f calc(50% + 5px), #ffffff00  calc(50% + 5px))
 }
 
 .fsm_actual{
@@ -28,7 +26,6 @@ html{
     z-index: 2;
 
     text-decoration: none;
-    background: #07827f;
     border-radius: 50%;
 
     display: flex;
@@ -38,6 +35,14 @@ html{
 
     user-select: none;
 }
+.blueColor{
+    background: #ffffff;
+    border: 7px solid #07827f;
+}
+.yellowColor{
+    background: #ffffff;
+    border: 7px solid #c4a91b;
+}
 
 .hiddenOverflow{
     overflow-x: hidden !important;
@@ -45,7 +50,7 @@ html{
 }
 
 .fullscreen{
-    animation: anim_fullscreen 2s forwards ease-in-out;
+    animation: anim_fullscreen 1s forwards ease-in-out;
 }
 
 @keyframes anim_fullscreen {
@@ -57,6 +62,7 @@ html{
         margin: 0;
         padding: 0;
         border-radius: 0;
+        border-size: 20px;
     }
 }
 
@@ -82,8 +88,6 @@ html{
         width: 100vw;
         min-height: 100vh;
         margin: auto;
-
-        background: linear-gradient( to right, #ffffff00 calc(50% - 5px), #07827f calc(50% - 5px), #07827f calc(50% + 5px), #ffffff00  calc(50% + 5px))
     }
 
     .fullscreen{

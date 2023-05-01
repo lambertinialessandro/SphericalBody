@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Aileron thin';
+  font-family: 'Tenor Sans', 'Aileron thin';
   src: url(../public/fonts/aileron.thin.otf);
 }
 

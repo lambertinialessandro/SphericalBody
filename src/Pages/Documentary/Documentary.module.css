@@ -1,9 +1,19 @@
-.Container{
-    width: 100%;
+.documentaryContainer{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+
+    z-index: -1;
+}
+
+.documentaryImage{
+    width: 500px;
+    height: 500px;
 }
 
 .initDiv{
@@ -44,11 +54,4 @@
     font-size: 23px;
     font-weight: bold;
     text-align: center;
-}
-
-
-@media screen and (max-width: 768px) {
-    .Container{
-        flex-direction: column;
-    }
 }

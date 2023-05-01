@@ -1,14 +1,29 @@
-.Container{
-    width: 100%;
+.containerAbstract{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+
+    height: 100vh;
+    position: absolute;
+    top: 0;
+
+    z-index: -1;
+}
+
+.textAbstract{
+    width: 50%;
+    height: min-content;
+    margin: 0 50px 150px 0;
+    
+    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
+    font-size: 30px;
+    text-align: center;
 }
 
 .initDiv{
     background: #ffffff;
-    border: 7px solid #c4a91b;
+    border: 7px solid #07827f;
 
     position: absolute;
     left: 0;
@@ -44,11 +59,4 @@
     font-size: 23px;
     font-weight: bold;
     text-align: center;
-}
-
-
-@media screen and (max-width: 768px) {
-    .Container{
-        flex-direction: column;
-    }
 }

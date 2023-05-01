@@ -344,10 +344,11 @@ export function reducerBody(state, action) {
 }
 
 export const leftText = {
-  title: "Tutorial",
   context:
-    " La mappa è composta da un corpo umano schematizzato con dei cerchi nelle articolazioni.\
-  Premendo su uno di questi cerchi, si aprirà un menù a tendina con tre opzioni: descrizione, esercizi e video.\
-  Selezionando l'opzione Video, si verrà reindirizzati a una pagina dove si potrà guardare un video riguardante l'articolazione selezionata e i relativi esercizi. In sostanza,\
-  il tutorial spiega come esplorare la mappa e guardare i video delle articolazioni selezionate.",
+    'The Spherical Body is a diagram that proposes an architecture of spheres,\
+    strings, and a cube representing the body.\
+    \
+    Click on the solid spheres to create a short sequence of five movements.\
+    These are the five spheres that the dancer has selected (known as "code")\
+    and will be the origin of the choreography you will witness on stage.',
 };

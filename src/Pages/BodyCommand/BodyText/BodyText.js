@@ -1,9 +1,8 @@
 import classes from "./BodyText.module.css";
 
-function BodyText({ title, context }) {
+function BodyText({ context }) {
   return (
     <div className={classes.TextArea}>
-      <h4 className={classes.TextAreaTitle}>{title}</h4>
       <p className={classes.TextAreaText}>{context}</p>
     </div>
   );
