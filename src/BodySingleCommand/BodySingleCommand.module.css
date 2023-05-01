@@ -6,6 +6,7 @@
     height: 100vh;
 
     min-width: 390px;
+    /* max-width: 530px; */
     /* padding: 100px 0px 0px 0px; */
 
     background-image: linear-gradient(360deg, #ecccff, #ffffff);
@@ -13,6 +14,7 @@
     background-image: linear-gradient(360deg, #ffeccc, #ffffff);
     background-image: repeating-linear-gradient(45deg, #ffecd8, transparent 100px);
     background-image: linear-gradient(180deg, #07827f, #ffffff);
+    background: #ffffff;
 }
 
 .divBody{

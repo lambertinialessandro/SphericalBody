@@ -359,6 +359,14 @@ function BodyMultipleCommand(props) {
   return (
     <>
       <Header />
+      <div className={`${classes.initDiv} z-10`}>
+        <div className={classes.linkTextContext}>
+          <h4 className={classes.linkTitle}>Multiple Command</h4>
+          <p className={classes.linkSubTitle}>
+            There will be shown many commands one after the other
+          </p>
+        </div>
+      </div>
 
       <div className={classes.divContainer}>
         <div className={classes.divBody}>

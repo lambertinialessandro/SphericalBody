@@ -226,7 +226,7 @@ function BodySingleCommand(props) {
   return (
     <>
       <Header />
-      <div className={`${classes.initDiv}`}>
+      <div className={`${classes.initDiv} z-10`}>
         <div className={classes.linkTextContext}>
           <h4 className={classes.linkTitle}>Single Command</h4>
           <p className={classes.linkSubTitle}>
@@ -236,6 +236,9 @@ function BodySingleCommand(props) {
       </div>
 
       <div className={classes.divContainer}>
+        <div>Tutorial</div>
+        <div>Video</div>
+        <div>Controller</div>
         <div className={classes.divBody}>
           <BodyVideo
             videoRef={videoRef}
