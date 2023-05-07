@@ -14,34 +14,6 @@ function Home({ links }) {
 
   const homeRef = useRef(null);
 
-  /* useEffect(() => {
-    const handleWheel = (event) => {
-      event.preventDefault();
-      const delta = 30;
-
-      console.log("homeRef.current", homeRef.current);
-      console.log("event.deltaY", event.deltaY);
-      console.log("event.deltaX", event.deltaX);
-
-      window.scrollBy({
-        // homeRef.current
-        left:
-          event.deltaY != 0
-            ? event.deltaY < 0
-              ? -delta
-              : delta
-            : event.deltaX < 0
-            ? -delta
-            : delta,
-      });
-    };
-
-    homeRef.current.addEventListener("wheel", handleWheel);
-    /* return () => {
-      homeRef.current.removeEventListener("onmousedown", handleWheel);
-    }; * /
-  }, []); */
-
   const particlesInit = async (main) => {
     await loadFull(main);
   };
