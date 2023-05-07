@@ -1,4 +1,7 @@
-import CircleButton from "../../../Components/CircleButton/CircleButton";
+import { useState } from "react";
+
+import SelectCharacter from "./SelectCharacter/SelectCharacter";
+import CircleButton from "./CircleButton/CircleButton";
 
 import classes from "./BodyController.module.css";
 
@@ -28,12 +31,47 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     ];
   };
 
+  const [state, setState] = useState("selectCharacter");
+  const nextState = (state) => {
+    switch (state) {
+      case "selectCharacter":
+        return "selectBodyPart";
+      case "selectBodyPart":
+        return "selectHide";
+      case "selectHide":
+        return "selectCharacter";
+    }
+  };
+
+  const [character, setCharacter] = useState(0);
+  const onClickSelectCharacter1 = () => {
+    setCharacter(1);
+    setState(nextState(state));
+  };
+  const onClickSelectCharacter2 = () => {
+    setCharacter(2);
+    setState(nextState(state));
+  };
+
+  const onClickBack = () => {
+    dispatch({ type: "RESET" });
+    setState("selectCharacter");
+  };
+  const onClickStart = () => {
+    dispatch({ type: "START" });
+    setState(nextState(state));
+  };
+  const onClickReset = () => {
+    dispatch({ type: "RESET" });
+    setState(nextState(state));
+  };
+
   const BodyControllers = [
     /* CENTRAL CORE */
     {
       key: "HEAD",
       classesContainer: classes.bodyPositionHead,
-      classesCircle: classes.circleHead,
+      classesCircle: [classes.circleHead, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "HEAD", task: "FLOATING" });
@@ -51,7 +89,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "CHEST",
       classesContainer: classes.bodyPositionChest,
-      classesCircle: classes.circleChest,
+      classesCircle: [classes.circleChest, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "CHEST", task: "FLOATING" });
@@ -69,7 +107,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "PELVIS",
       classesContainer: classes.bodyPositionPelvis,
-      classesCircle: classes.circlePelvis,
+      classesCircle: [classes.circlePelvis, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "PELVIS", task: "FLOATING" });
@@ -89,7 +127,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "SHOULDER_R",
       classesContainer: classes.bodyPositionShoulderR,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "SHOULDER_R", task: "FLOATING" });
@@ -107,7 +145,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "ELBOW_R",
       classesContainer: classes.bodyPositionElbowR,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "ELBOW_R", task: "FLOATING" });
@@ -125,7 +163,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "HAND_R",
       classesContainer: classes.bodyPositionHandR,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "HAND_R", task: "FLOATING" });
@@ -145,7 +183,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "SHOULDER_L",
       classesContainer: classes.bodyPositionShoulderL,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "SHOULDER_L", task: "FLOATING" });
@@ -163,7 +201,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "ELBOW_L",
       classesContainer: classes.bodyPositionElbowL,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "ELBOW_L", task: "FLOATING" });
@@ -181,7 +219,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "HAND_L",
       classesContainer: classes.bodyPositionHandL,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "HAND_L", task: "FLOATING" });
@@ -201,7 +239,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "KNEE_R",
       classesContainer: classes.bodyPositionKneeR,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "KNEE_R", task: "FLOATING" });
@@ -219,7 +257,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "FOOT_R",
       classesContainer: classes.bodyPositionFootR,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "FOOT_R", task: "FLOATING" });
@@ -239,7 +277,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "KNEE_L",
       classesContainer: classes.bodyPositionKneeL,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "KNEE_L", task: "FLOATING" });
@@ -257,7 +295,7 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "FOOT_L",
       classesContainer: classes.bodyPositionFootL,
-      classesCircle: classes.circleSmall,
+      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
       onClicks: generateActions(
         () => {
           dispatch({ videoRef, type: "FOOT_L", task: "FLOATING" });
@@ -276,10 +314,36 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
 
   return (
     <div className={classes.divBody}>
-      {BodyControllers.map((elem) => (
-        <CircleButton {...elem} />
-      ))}
-    </div> /* (footer ? { footer } : "") */
+      {state === "selectCharacter" && (
+        <SelectCharacter
+          title1="DANCER 1"
+          onClick1={onClickSelectCharacter1}
+          title2="DANCER 2"
+          onClick2={onClickSelectCharacter2}
+        />
+      )}
+      {state === "selectBodyPart" && (
+        <div
+          Style="margin: auto;
+        width: 248px;
+        height: 558px;"
+        >
+          <div className={classes.divBodyBackground}>
+            {BodyControllers.map((elem) => (
+              <CircleButton {...elem} dispatch={dispatch} />
+            ))}
+          </div>
+          <div className="flex justify-around max-w-[500px]">
+            <input type="button" value="BACK" onClick={onClickBack} />
+            <input type="button" value="RESET" onClick={onClickReset} />
+            <input type="button" value="START" onClick={onClickStart} />
+          </div>
+        </div>
+      )}
+      {state === "selectHide" && (
+        <div className={classes.divBody}>selectHide</div>
+      )}
+    </div>
   );
 }
 

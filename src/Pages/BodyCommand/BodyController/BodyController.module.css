@@ -1,13 +1,48 @@
-.divBody {
-  background-image: url(/public/images/skeleton.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  
+.divBody, .divBodyBackground {
   width: 248px;
   height: 558px;
   margin: auto;
   position: relative;
+
+  min-width: 390px;
+  max-width: 33%;
+  width: 33%;
+  height: 597px;
+}
+.divBodyBackground {
+  background-image: url(/public/images/skeleton.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* background-position: center; */
+
+  margin: auto;
+  width: 248px;
+  height: 558px;
+}
+
+.blueColor{
+  background: #ffffff;
+  border: 5px solid #07827f;
+  color: #000000;
+}
+.blueColor:hover{
+  background: #07827f;
+  transition: all 250ms ease-in-out;
+
+  outline: 6px solid #07827f;
+  outline-offset: 7px;
+}
+.yellowColor{
+  background: #ffffff;
+  border: 5px solid #c4a91b;
+  color: #000000;
+}
+.yellowColor:hover{
+  background: #c4a91b;
+  transition: all 250ms ease-in-out;
+
+  outline: 6px solid #c4a91b;
+  outline-offset: 7px;
 }
 
 .circleHead{

@@ -33,7 +33,6 @@ function BodyCommand({
           videoRef={videoRef}
           stateBody={stateBody}
           dispatch={dispatch}
-          /* footer={footer} */
         />
         <BodyVideo
           videoRef={videoRef}
