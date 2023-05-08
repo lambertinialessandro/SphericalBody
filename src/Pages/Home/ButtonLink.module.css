@@ -130,4 +130,11 @@
         80% {top: 100px;}
         100% {position: relative; top: 0px;}
     }
+
+    .blueColor:hover{
+        background: #ffffff;
+    }
+    .yellowColor:hover{
+        background: #ffffff;
+    }
 }

@@ -85,9 +85,16 @@
         margin-top: 15px;
     }
 
+    .mainTitleSphere{
+        width: 150px;
+        min-width: 150px;
+        height: 150px;
+    }
+
     .mainTitle{
         width: 350px;
-        height: 100px;
+        min-width: 350px;
+        height: 150px;
     }
 
     .backButton{

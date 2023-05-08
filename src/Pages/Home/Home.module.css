@@ -91,7 +91,7 @@ html{
     }
 
     .fullscreen{
-        animation: anim_fullscreen 2s forwards ease-in-out;
+        animation: anim_fullscreen 1s forwards ease-in-out;
     }
 
     @keyframes anim_fullscreen {
