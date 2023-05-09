@@ -1,0 +1,20 @@
+.divBodyPart {
+  margin: auto;
+  width: 248px;
+  height: 558px;
+}
+.divBodyBackground {
+  background-image: url(/public/images/skeleton.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* background-position: center; */
+
+  margin: auto;
+  position: relative;
+
+  margin: auto;
+  width: 248px;
+  min-width: 390px;
+  max-width: 33%;
+  height: 558px;
+}

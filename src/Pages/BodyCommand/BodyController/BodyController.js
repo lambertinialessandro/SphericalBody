@@ -1,7 +1,7 @@
 import { useReducer, useState } from "react";
 
 import SelectCharacter from "./SelectCharacter/SelectCharacter";
-import CircleButton from "./CircleButton/CircleButton";
+import SelectBodyPart from "./SelectBodyPart/SelectBodyPart";
 
 import classes from "./BodyController.module.css";
 
@@ -277,33 +277,13 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
         />
       )}
       {animationManager.current === statesEnum.selectBodyPart && (
-        <div className={classes.divBodyPart}>
-          <div className={classes.divBodyBackground}>
-            {BodyControllers.map((elem) => (
-              <CircleButton {...elem} dispatch={dispatch} />
-            ))}
-          </div>
-          <div className="flex justify-around max-w-[500px] my-[15px]">
-            <input
-              className={classes.actionButton}
-              type="button"
-              value="BACK"
-              onClick={onClickBack}
-            />
-            <input
-              className={classes.actionButton}
-              type="button"
-              value="RESET"
-              onClick={onClickReset}
-            />
-            <input
-              className={classes.actionButton}
-              type="button"
-              value="START"
-              onClick={onClickStart}
-            />
-          </div>
-        </div>
+        <SelectBodyPart
+          BodyControllers={BodyControllers}
+          dispatch={dispatch}
+          onClickBack={onClickBack}
+          onClickReset={onClickReset}
+          onClickStart={onClickStart}
+        />
       )}
       {animationManager.current === statesEnum.selectHide && (
         <div className={classes.divBody}>selectHide</div>
