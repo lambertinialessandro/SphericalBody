@@ -1,10 +1,16 @@
+html{
+    overflow-x: initial;
+    overflow-y: initial;
+}
+
 .containerAbstract{
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
     align-items: flex-end;
 
-    height: 100vh;
+    margin-top: 200px;
+    height: min-content;
 }
 
 .textAbstract{
@@ -63,6 +69,7 @@
         flex-direction: column;
         height: 100vh;
         align-items: center;
+        margin-top: 0;
     }
 
     .textAbstract{

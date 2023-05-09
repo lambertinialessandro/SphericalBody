@@ -94,3 +94,24 @@
     font-weight: bold;
     text-align: center;
 }
+
+@media screen and (max-width: 768px){
+    .blueColor{
+        background: #ffffff;
+        border: 4px solid #07827f;
+    }
+    .yellowColor{
+        border: 4px solid #c4a91b;
+    }
+
+    .cardLinkBox{
+        height: 100px;
+        width: 100px;
+
+        outline-offset: -50px;
+    }
+
+    .linkTitle{
+        font-size: 14px;
+    }
+}
