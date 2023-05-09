@@ -6,8 +6,6 @@ import BodyController from "./BodyController/BodyController";
 
 import classes from "./BodyCommand.module.css";
 
-const videoSubject = "./video/simone/"; // test, subject1
-
 function BodyCommand({
   title,
   leftText,
@@ -35,11 +33,12 @@ function BodyCommand({
           dispatch={dispatch}
         />
         <BodyVideo
+          stateBody={stateBody}
           videoRef={videoRef}
-          onEnded={() => {
-            dispatch({ videoRef, type: "STOP" });
+          onEnded={(e) => {
+            console.log("e", e);
+            dispatch({ videoRef, type: "STOP_VIDEO" });
           }}
-          src={videoSubject + "idle.mp4"}
         />
       </div>
     </>

@@ -1,69 +1,121 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 
 import SelectCharacter from "./SelectCharacter/SelectCharacter";
 import CircleButton from "./CircleButton/CircleButton";
 
 import classes from "./BodyController.module.css";
 
-function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
-  const generateActions = (action1, action2, action3) => {
-    return [
-      {
-        key: "1",
-        onClick: action1,
-        head: (
-          <span className="material-symbols-outlined">move_selection_up</span>
-        ),
-        text: "Floating",
-      },
-      {
-        key: "2",
-        onClick: action2,
-        head: <span className="material-symbols-outlined">swap_horiz</span>,
-        text: "Rejecting",
-      },
-      {
-        key: "3",
-        onClick: action3,
-        head: <span className="material-symbols-outlined">download</span>,
-        text: "Supporting",
-      },
-    ];
-  };
-
-  const [state, setState] = useState("selectCharacter");
-  const nextState = (state) => {
+const statesEnum = {
+  selectCharacter: 0,
+  selectBodyPart: 1,
+  selectHide: 2,
+  nextState: (state) => {
     switch (state) {
-      case "selectCharacter":
-        return "selectBodyPart";
-      case "selectBodyPart":
-        return "selectHide";
-      case "selectHide":
-        return "selectCharacter";
+      case statesEnum.selectCharacter:
+        return statesEnum.selectBodyPart;
+      case statesEnum.selectBodyPart:
+        return statesEnum.selectHide;
+      case statesEnum.selectHide:
+        return statesEnum.selectCharacter;
+    }
+  },
+};
+
+const initialState = {
+  current: statesEnum.selectCharacter,
+  nextState: null,
+  fadeOut: false,
+  fadeIn: false,
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "FADEOUT_START":
+      return {
+        ...state,
+        fadeOut: true,
+        fadeIn: false,
+        nextState: action.nextState,
+      };
+    case "FADEOUT_FADEIN":
+      return {
+        ...state,
+        fadeOut: false,
+        fadeIn: true,
+        current: state.nextState,
+      };
+    case "FADEIN_END":
+      return {
+        ...state,
+        fadeOut: false,
+        fadeIn: false,
+      };
+    default:
+      return { ...state };
+  }
+};
+
+function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
+  const [animationManager, dispatchAnimation] = useReducer(
+    reducer,
+    initialState
+  );
+  const onAnimationEnd = (event) => {
+    if (event.target === event.currentTarget) {
+      if (animationManager.fadeOut || animationManager.nextState) {
+        dispatchAnimation({ type: "FADEOUT_FADEIN" });
+      }
+      if (animationManager.fadeIn) {
+        dispatchAnimation({ type: "FADEIN_END" });
+      }
     }
   };
 
-  const [character, setCharacter] = useState(0);
+  const [character, setCharacter] = useState({
+    id: 0,
+    colorBody: classes.blueColor,
+    colorOther: classes.yellowColor,
+  });
   const onClickSelectCharacter1 = () => {
-    setCharacter(1);
-    setState(nextState(state));
+    setCharacter({
+      id: 1,
+      colorBody: classes.blueColor,
+      colorOther: classes.yellowColor,
+    });
+    dispatch({ type: "CHANGE_VIDEO", videoSubject: "./video/Dancer1/" });
+
+    dispatchAnimation({
+      type: "FADEOUT_START",
+      nextState: statesEnum.nextState(animationManager.current),
+    });
   };
   const onClickSelectCharacter2 = () => {
-    setCharacter(2);
-    setState(nextState(state));
+    setCharacter({
+      id: 1,
+      colorBody: classes.yellowColor,
+      colorOther: classes.blueColor,
+    });
+    dispatch({ type: "CHANGE_VIDEO", videoSubject: "./video/Dancer2/" });
+
+    dispatchAnimation({
+      type: "FADEOUT_START",
+      nextState: statesEnum.nextState(animationManager.current),
+    });
   };
 
   const onClickBack = () => {
     dispatch({ type: "RESET" });
-    setState("selectCharacter");
+    dispatchAnimation({
+      type: "FADEOUT_START",
+      nextState: statesEnum.selectCharacter,
+    });
   };
   const onClickStart = () => {
-    dispatch({ type: "START" });
-    setState(nextState(state));
+    dispatch({ type: "START", videoRef });
+    dispatchAnimation("FADEOUT_START");
   };
   const onClickReset = () => {
-    dispatch({ type: "RESET" });
-    setState(nextState(state));
+    dispatch({ type: "RESET_ACTIONS" });
   };
 
   const BodyControllers = [
@@ -71,54 +123,30 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "HEAD",
       classesContainer: classes.bodyPositionHead,
-      classesCircle: [classes.circleHead, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "HEAD", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "HEAD", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "HEAD", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleHead, character.colorBody].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "HEAD", task: "FLOATING" });
+      },
       text: stateBody.headText,
       disabled: stateBody.disabled,
     },
     {
       key: "CHEST",
       classesContainer: classes.bodyPositionChest,
-      classesCircle: [classes.circleChest, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "CHEST", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "CHEST", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "CHEST", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleChest, character.colorBody].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "CHEST", task: "FLOATING" });
+      },
       text: stateBody.chestText,
       disabled: stateBody.disabled,
     },
     {
       key: "PELVIS",
       classesContainer: classes.bodyPositionPelvis,
-      classesCircle: [classes.circlePelvis, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "PELVIS", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "PELVIS", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "PELVIS", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circlePelvis, character.colorBody].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "PELVIS", task: "FLOATING" });
+      },
       text: stateBody.pelvisText,
       disabled: stateBody.disabled,
     },
@@ -127,54 +155,30 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "SHOULDER_R",
       classesContainer: classes.bodyPositionShoulderR,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "SHOULDER_R", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "SHOULDER_R", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "SHOULDER_R", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "SHOULDER_R", task: "FLOATING" });
+      },
       text: stateBody.ShoulderRText,
       disabled: stateBody.disabled,
     },
     {
       key: "ELBOW_R",
       classesContainer: classes.bodyPositionElbowR,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "ELBOW_R", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "ELBOW_R", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "ELBOW_R", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "ELBOW_R", task: "FLOATING" });
+      },
       text: stateBody.ElbowRText,
       disabled: stateBody.disabled,
     },
     {
       key: "HAND_R",
       classesContainer: classes.bodyPositionHandR,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "HAND_R", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "HAND_R", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "HAND_R", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "HAND_R", task: "FLOATING" });
+      },
       text: stateBody.HandRText,
       disabled: stateBody.disabled,
     },
@@ -183,54 +187,30 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "SHOULDER_L",
       classesContainer: classes.bodyPositionShoulderL,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "SHOULDER_L", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "SHOULDER_L", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "SHOULDER_L", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "SHOULDER_L", task: "FLOATING" });
+      },
       text: stateBody.ShoulderLText,
       disabled: stateBody.disabled,
     },
     {
       key: "ELBOW_L",
       classesContainer: classes.bodyPositionElbowL,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "ELBOW_L", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "ELBOW_L", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "ELBOW_L", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "ELBOW_L", task: "FLOATING" });
+      },
       text: stateBody.ElbowLText,
       disabled: stateBody.disabled,
     },
     {
       key: "HAND_L",
       classesContainer: classes.bodyPositionHandL,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "HAND_L", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "HAND_L", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "HAND_L", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "HAND_L", task: "FLOATING" });
+      },
       text: stateBody.HandLText,
       disabled: stateBody.disabled,
     },
@@ -239,36 +219,20 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "KNEE_R",
       classesContainer: classes.bodyPositionKneeR,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "KNEE_R", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "KNEE_R", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "KNEE_R", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "KNEE_R", task: "FLOATING" });
+      },
       text: stateBody.KneeRText,
       disabled: stateBody.disabled,
     },
     {
       key: "FOOT_R",
       classesContainer: classes.bodyPositionFootR,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "FOOT_R", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "FOOT_R", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "FOOT_R", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "FOOT_R", task: "FLOATING" });
+      },
       text: stateBody.FootRText,
       disabled: stateBody.disabled,
     },
@@ -277,44 +241,34 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
     {
       key: "KNEE_L",
       classesContainer: classes.bodyPositionKneeL,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "KNEE_L", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "KNEE_L", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "KNEE_L", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "KNEE_L", task: "FLOATING" });
+      },
       text: stateBody.KneeLText,
       disabled: stateBody.disabled,
     },
     {
       key: "FOOT_L",
       classesContainer: classes.bodyPositionFootL,
-      classesCircle: [classes.circleSmall, classes.blueColor].join(" "),
-      onClicks: generateActions(
-        () => {
-          dispatch({ videoRef, type: "FOOT_L", task: "FLOATING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "FOOT_L", task: "REJECTING" });
-        },
-        () => {
-          dispatch({ videoRef, type: "FOOT_L", task: "SUPPORTING" });
-        }
-      ),
+      classesCircle: [classes.circleSmall, character.colorOther].join(" "),
+      onClick: () => {
+        dispatch({ videoRef, type: "FOOT_L", task: "FLOATING" });
+      },
       text: stateBody.FootLText,
       disabled: stateBody.disabled,
     },
   ];
 
   return (
-    <div className={classes.divBody}>
-      {state === "selectCharacter" && (
+    <div
+      id="mainDiv"
+      className={`${classes.divBody} ${
+        animationManager.fadeIn ? classes.fadeIn : ""
+      } ${animationManager.fadeOut ? classes.fadeOut : ""}`}
+      onAnimationEnd={onAnimationEnd}
+    >
+      {animationManager.current === statesEnum.selectCharacter && (
         <SelectCharacter
           title1="DANCER 1"
           onClick1={onClickSelectCharacter1}
@@ -322,25 +276,36 @@ function BodyController({ videoRef, stateBody, dispatch /* , footer */ }) {
           onClick2={onClickSelectCharacter2}
         />
       )}
-      {state === "selectBodyPart" && (
-        <div
-          Style="margin: auto;
-        width: 248px;
-        height: 558px;"
-        >
+      {animationManager.current === statesEnum.selectBodyPart && (
+        <div className={classes.divBodyPart}>
           <div className={classes.divBodyBackground}>
             {BodyControllers.map((elem) => (
               <CircleButton {...elem} dispatch={dispatch} />
             ))}
           </div>
-          <div className="flex justify-around max-w-[500px]">
-            <input type="button" value="BACK" onClick={onClickBack} />
-            <input type="button" value="RESET" onClick={onClickReset} />
-            <input type="button" value="START" onClick={onClickStart} />
+          <div className="flex justify-around max-w-[500px] my-[15px]">
+            <input
+              className={classes.actionButton}
+              type="button"
+              value="BACK"
+              onClick={onClickBack}
+            />
+            <input
+              className={classes.actionButton}
+              type="button"
+              value="RESET"
+              onClick={onClickReset}
+            />
+            <input
+              className={classes.actionButton}
+              type="button"
+              value="START"
+              onClick={onClickStart}
+            />
           </div>
         </div>
       )}
-      {state === "selectHide" && (
+      {animationManager.current === statesEnum.selectHide && (
         <div className={classes.divBody}>selectHide</div>
       )}
     </div>
