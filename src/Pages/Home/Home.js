@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import HeaderHome from "./HeaderHome";

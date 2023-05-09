@@ -41,18 +41,17 @@ export function reducerBody(state, action) {
       return state;
     }
 
-    /* setTimeout(() => {
+    setTimeout(() => {
       videoRef.current.src = state.listActions[state.curAction];
       videoRef.current.currentTime = 0.01;
       videoRef.current.play();
-    }, 1000); // TODO: cambiare il tempo */
+    }, 1000); // TODO: cambiare il tempo
 
     return { ...state, disabled: true, curAction: state.curAction + 1 };
   } else if (action.type === "NEXT ACTION") {
     if (state.curAction < state.listActions.length) {
       videoRef.current.pause();
       videoRef.current.src = state.listActions[state.curAction];
-      //videoRef.current.load(state.listActions[state.curAction]);
       videoRef.current.currentTime = 0.01;
       videoRef.current.play();
 
@@ -70,7 +69,6 @@ export function reducerBody(state, action) {
     videoRef.current.currentTime = 0;
 
     return { ...state, disabled: false, curAction: 0 };
-    return { ...state, disabled: false };
   } else if (action.type === "RESET") {
     return initialState;
   } else if (action.type === "RESET_ACTIONS") {
