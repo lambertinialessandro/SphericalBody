@@ -112,7 +112,10 @@
 
 @media screen and (max-width: 768px){
     .cardLinkBox{
-        top: -200vh;
+        /* top: -200vh; */
+        height: 175px;
+        width: 175px;
+        outline-offset: -87.5px;
     }
 
     .cardLinkBox:nth-of-type(1){
@@ -136,5 +139,9 @@
     }
     .yellowColor:hover{
         background: #ffffff;
+    }
+
+    .linkTitle{
+        font-size: 16px;
     }
 }

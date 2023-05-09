@@ -70,6 +70,7 @@
     .textSphericalSystem{
         width: 80%;
         margin: 0;
+        font-size: 16px;
     }
 
     .textSphericalSystem:nth-child(1){

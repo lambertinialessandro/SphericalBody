@@ -83,25 +83,32 @@
     .mainText{
         height: 100px;
         margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
     }
 
     .mainTitleSphere{
-        width: 150px;
-        min-width: 150px;
-        height: 150px;
+        width: 75px;
+        min-width: 75px;
+        height: 75px;
     }
 
     .mainTitle{
-        width: 350px;
-        min-width: 350px;
-        height: 150px;
+        width: 200px;
+        min-width: 200px;
+        height: 75px;
     }
 
     .backButton{
-        width: 100px;
-        min-width: 100px;
-        min-height: 100px;
+        width: 60px;
+        min-width: 60px;
+        min-height: 60px;
+        height: 60px;
+        font-size: 15px;
         margin: 0px 25px 0px 0px;
+        border: 3px solid #07827f;
     }
 }
 
