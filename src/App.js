@@ -3,15 +3,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // import BodySingleCommand from "./BodySingleCommand/BodySingleCommand";
 
 import {
-  reducerBody as reducer_SR,
-  initialState as initialState_SR,
-  leftText as leftText_SR,
-} from "./Pages/BodyCommand/CommandsReducers/SingleReducer";
-import {
-  reducerBody as reducer_MR,
-  initialState as initialState_MR,
-  leftText as leftText_MR,
-} from "./Pages/BodyCommand/CommandsReducers/MultipleReducer";
+  reducerBody as reducer_SCR,
+  initialState as initialState_SCR,
+  leftText as leftText_SCR,
+} from "./Pages/BodyCommand/CommandsReducers/SingleConcatenationReducer";
 
 import SubPageWrapper from "./Components/SubPageWrapper/SubPageWrapper";
 
@@ -35,9 +30,9 @@ function App() {
       component: (
         <BodyCommand
           title="APP"
-          reducer={reducer_MR}
-          initialState={initialState_MR}
-          leftText={leftText_MR}
+          reducer={reducer_SCR}
+          initialState={initialState_SCR}
+          leftText={leftText_SCR}
         />
       ),
       title: "APP",
