@@ -1,45 +1,45 @@
-.divButtons{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 20px auto;
+.divButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 20px auto;
 
-    min-width: 350px;
-    max-width: 530px;
+  min-width: 350px;
+  max-width: 530px;
 
-    z-index: 0;
-}
-
-.buttonStart{
-    padding: 10px 15px;
-    background: #bfffbfa8;
-    border: 2px solid #4dff4d;
-    cursor: pointer;
-}
-.buttonStart:hover{
-    background: #4dff4da8;
-    border: 2px solid #00c100;
-}
-.buttonReset{
-    padding: 10px 15px;
-    background: #ffbfbfa8;
-    border: 2px solid #ff4d4d;
-    cursor: pointer;
-}
-.buttonReset:hover{
-    background: #ff4d4da8;
-    border: 2px solid #c10000;
+  z-index: 0;
 }
 
-.disabled{
-    background: #818181a8;
-    border: 2px solid #3d3d3d;
-    color: #fcfcfc;
-    cursor: default;
+.buttonStart {
+  padding: 10px 15px;
+  background: #bfffbfa8;
+  border: 2px solid #4dff4d;
+  cursor: pointer;
 }
-.disabled:hover{
-    background: #818181a8;
-    border: 2px solid #3d3d3d;
-    color: #fcfcfc;
+.buttonStart:hover {
+  background: #4dff4da8;
+  border: 2px solid #00c100;
+}
+.buttonReset {
+  padding: 10px 15px;
+  background: #ffbfbfa8;
+  border: 2px solid #ff4d4d;
+  cursor: pointer;
+}
+.buttonReset:hover {
+  background: #ff4d4da8;
+  border: 2px solid #c10000;
+}
+
+.disabled {
+  background: #818181a8;
+  border: 2px solid #3d3d3d;
+  color: #fcfcfc;
+  cursor: default;
+}
+.disabled:hover {
+  background: #818181a8;
+  border: 2px solid #3d3d3d;
+  color: #fcfcfc;
 }

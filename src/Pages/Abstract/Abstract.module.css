@@ -1,79 +1,90 @@
-html{
-    overflow-x: initial;
-    overflow-y: initial;
+html {
+  overflow-x: initial;
+  overflow-y: initial;
 }
 
-.containerAbstract{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-    align-items: flex-end;
+.containerAbstract {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: flex-end;
 
-    margin-top: 200px;
-    height: min-content;
+  margin-top: 200px;
+  height: min-content;
 }
 
-.textAbstract{
-    width: 50%;
-    height: min-content;
-    margin: 0 50px 150px 0;
-    
-    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
-    font-size: 30px;
-    text-align: center;
+.textAbstract {
+  width: 50%;
+  height: min-content;
+  margin: 0 50px 150px 0;
+
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 30px;
+  text-align: center;
 }
 
-.initDiv{
-    background: #ffffff;
-    border: 7px solid #07827f;
+.initDiv {
+  background: #ffffff;
+  border: 7px solid #07827f;
 
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    animation: exiting 1s forwards ease-in-out;
+  animation: exiting 1s forwards ease-in-out;
 }
 
 @keyframes exiting {
-    0% {opacity: 1}
-    99% {opacity: 0; width: 100%; height: 100%}
-    100% {opacity: 0; display: none; width: 0; height: 0;}
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    width: 0;
+    height: 0;
+  }
 }
 
-.linkTextContext{
-    height: 80%;
-    width: 80%;
+.linkTextContext {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.linkTitle {
+  color: #000000;
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .containerAbstract {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
+    height: 100vh;
+    align-items: center;
+    margin-top: 0;
+  }
 
-.linkTitle{
-    color: #000000;
-    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
-    font-size: 23px;
-    font-weight: bold;
-    text-align: center;
-}
-
-@media screen and (max-width: 768px){
-    .containerAbstract{
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        align-items: center;
-        margin-top: 0;
-    }
-
-    .textAbstract{
-        font-size: 16px;
-        margin: inherit;
-    }
+  .textAbstract {
+    font-size: 16px;
+    margin: inherit;
+  }
 }

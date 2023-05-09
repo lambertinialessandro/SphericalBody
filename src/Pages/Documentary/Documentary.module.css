@@ -1,63 +1,74 @@
-html{
-    overflow-x: initial;
-    overflow-y: initial;
+html {
+  overflow-x: initial;
+  overflow-y: initial;
 }
 
-.documentaryContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.documentaryContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    top: 0;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
 
-    z-index: -1;
+  z-index: -1;
 }
 
-.documentaryImage{
-    width: 500px;
-    /* height: 500px; */
-    height: auto;
+.documentaryImage {
+  width: 500px;
+  /* height: 500px; */
+  height: auto;
 }
 
-.initDiv{
-    background: #ffffff;
-    border: 7px solid #c4a91b;
+.initDiv {
+  background: #ffffff;
+  border: 7px solid #c4a91b;
 
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    animation: exiting 1s forwards ease-in-out;
+  animation: exiting 1s forwards ease-in-out;
 }
 
 @keyframes exiting {
-    0% {opacity: 1}
-    99% {opacity: 0; width: 100%; height: 100%}
-    100% {opacity: 0; display: none; width: 0; height: 0;}
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    width: 0;
+    height: 0;
+  }
 }
 
-.linkTextContext{
-    height: 80%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.linkTextContext {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.linkTitle{
-    color: #000000;
-    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
-    font-size: 23px;
-    font-weight: bold;
-    text-align: center;
+.linkTitle {
+  color: #000000;
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
 }

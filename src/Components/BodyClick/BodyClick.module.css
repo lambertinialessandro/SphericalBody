@@ -11,20 +11,30 @@
   position: relative;
 }
 
-.disabled{
+.disabled {
   animation: 1s hide forwards;
 }
 
 @keyframes show {
-    0% {opacity:0; display: block}
-    100% {opacity:1}
+  0% {
+    opacity: 0;
+    display: block;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes hide {
-    0% {opacity:1}
-    100% {opacity:0; display: none}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
-.circleHead{
+.circleHead {
   height: 80px;
   width: 80px;
 
@@ -33,7 +43,7 @@
 
   z-index: 2;
 }
-.circleChest{
+.circleChest {
   height: 60px;
   width: 60px;
 
@@ -42,7 +52,7 @@
 
   z-index: 2;
 }
-.circlePelvis{
+.circlePelvis {
   height: 65px;
   width: 65px;
 
@@ -51,7 +61,7 @@
 
   z-index: 2;
 }
-.circleSmall{
+.circleSmall {
   height: 50px;
   width: 50px;
 
@@ -62,77 +72,76 @@
 }
 
 /* CENTRAL CORE */
-.bodyPositionHead{
+.bodyPositionHead {
   position: absolute;
   left: 83px;
   top: 0px;
 }
-.bodyPositionChest{
+.bodyPositionChest {
   position: absolute;
   left: 91px;
   top: 123px;
 }
-.bodyPositionPelvis{
+.bodyPositionPelvis {
   position: absolute;
   left: 89px;
   top: 240px;
 }
 
 /* RIGHT ARM */
-.bodyPositionShoulderR{
+.bodyPositionShoulderR {
   position: absolute;
   left: 155px;
   top: 81px;
 }
-.bodyPositionElbowR{
+.bodyPositionElbowR {
   position: absolute;
   left: 176px;
   top: 168px;
 }
-.bodyPositionHandR{
+.bodyPositionHandR {
   position: absolute;
   left: 203px;
   top: 250px;
 }
 
 /* LEFT ARM */
-.bodyPositionShoulderL{
+.bodyPositionShoulderL {
   position: absolute;
   left: 34px;
   top: 82px;
 }
-.bodyPositionElbowL{
+.bodyPositionElbowL {
   position: absolute;
   left: 13px;
   top: 169px;
 }
-.bodyPositionHandL{
+.bodyPositionHandL {
   position: absolute;
   left: -11px;
   top: 247px;
 }
 
 /* RIGHT LEG */
-.bodyPositionKneeR{
+.bodyPositionKneeR {
   position: absolute;
   left: 54px;
   top: 380px;
 }
-.bodyPositionFootR{
+.bodyPositionFootR {
   position: absolute;
   left: 63px;
   top: 508px;
 }
 
 /* LEFT LEG */
-.bodyPositionKneeL{
+.bodyPositionKneeL {
   position: absolute;
   left: 139px;
   top: 379px;
 }
-.bodyPositionFootL{
+.bodyPositionFootL {
   position: absolute;
   left: 133px;
   top: 508px;
 }
-

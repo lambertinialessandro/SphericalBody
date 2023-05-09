@@ -1,4 +1,4 @@
-.bodyCircle{
+.bodyCircle {
   border-radius: 50px;
   background: #bfbfbf8c;
   border: 3px solid black;
@@ -9,49 +9,54 @@
 
   animation: 1s show forwards;
 }
-.bodyCircle:hover{
+.bodyCircle:hover {
   background: #ccb5008c;
   border: 3px solid #942323;
 }
 
-.disabled{
+.disabled {
   animation: 1s hide forwards;
   cursor: default;
 }
 
 @keyframes show {
-    0% {opacity:0; display: block}
-    100% {opacity:1}
+  0% {
+    opacity: 0;
+    display: block;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes hide {
-    0% {opacity:1}
-    100% {opacity:0; display: none}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
-.circleTop{
+.circleTop {
   position: relative;
-  top: -50px!important;
-  left: 50px!important;
+  top: -50px !important;
+  left: 50px !important;
 }
 
-.circleCenter{
+.circleCenter {
   position: relative;
-  top: -2px!important;
-  left: 50px!important;
+  top: -2px !important;
+  left: 50px !important;
 }
 
-.circleBottom{
+.circleBottom {
   position: relative;
-  top: 50px!important;
-  left: 50px!important;
+  top: 50px !important;
+  left: 50px !important;
 }
 
-
-
-
-
-
-.classesContainer{
+.classesContainer {
   background: #ff000087;
   display: flex;
   flex-direction: row;

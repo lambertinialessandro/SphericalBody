@@ -1,114 +1,138 @@
-.mainText{
-    width: 100%;
-    min-width: 390px;
-    height: 100px;
-    margin: 10px 0px;
+.mainText {
+  width: 100%;
+  min-width: 390px;
+  height: 100px;
+  margin: 10px 0px;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.divImagesHeader{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.divImagesHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
-.mainTitleSphere{
-    width: 200px;
-    min-width: 200px;
-    height: 200px;
+.mainTitleSphere {
+  width: 200px;
+  min-width: 200px;
+  height: 200px;
 }
 
-.mainTitle{
-    width: 500px;
-    height: 200px;
-    object-fit: cover;
+.mainTitle {
+  width: 500px;
+  height: 200px;
+  object-fit: cover;
 }
 
-.backButton{
-    text-decoration: none;
-    background: #ffffff;
-    border: 5px solid #07827f;
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
+.backButton {
+  text-decoration: none;
+  background: #ffffff;
+  border: 5px solid #07827f;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    -webkit-user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
 
-    user-select: none;
-    position: relative;
+  user-select: none;
+  position: relative;
 
-    left: -100%;
-    animation: entering 2s forwards ease-in-out, floatingX 2s 2s infinite linear, floatingY 3s 2s infinite linear;
+  left: -100%;
+  animation: entering 2s forwards ease-in-out, floatingX 2s 2s infinite linear,
+    floatingY 3s 2s infinite linear;
 
-    color: #000000;
-    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
-    font-size: 25px;
-    /* font-weight: bold; */
-    text-align: center;
-    
-    margin-right: 100px;
-    margin: 0px 25px 0px 0px;
+  color: #000000;
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 25px;
+  /* font-weight: bold; */
+  text-align: center;
+
+  margin-right: 100px;
+  margin: 0px 25px 0px 0px;
 }
 
 @keyframes entering {
-    0% {position: relative; left: -100%;}
-    80% {left: 20%;}
-    100% {position: relative; left: 0%;}
+  0% {
+    position: relative;
+    left: -100%;
+  }
+  80% {
+    left: 20%;
+  }
+  100% {
+    position: relative;
+    left: 0%;
+  }
 }
 
 @keyframes floatingX {
-    0% {left: 0px;}
-    33% {left: 2.5px;}
-    66% {left: -2.5px;}
-    100% {left: 0px;}
+  0% {
+    left: 0px;
+  }
+  33% {
+    left: 2.5px;
+  }
+  66% {
+    left: -2.5px;
+  }
+  100% {
+    left: 0px;
+  }
 }
 
 @keyframes floatingY {
-    0% {top: 0px;}
-    33% {top: 2.5px;}
-    66% {top: -2.5px;}
-    100% {top: 0px;}
+  0% {
+    top: 0px;
+  }
+  33% {
+    top: 2.5px;
+  }
+  66% {
+    top: -2.5px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .mainText{
-        height: 100px;
-        margin-top: 15px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
+  .mainText {
+    height: 100px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-    .mainTitleSphere{
-        width: 75px;
-        min-width: 75px;
-        height: 75px;
-    }
+  .mainTitleSphere {
+    width: 75px;
+    min-width: 75px;
+    height: 75px;
+  }
 
-    .mainTitle{
-        width: 200px;
-        min-width: 200px;
-        height: 75px;
-    }
+  .mainTitle {
+    width: 200px;
+    min-width: 200px;
+    height: 75px;
+  }
 
-    .backButton{
-        width: 60px;
-        min-width: 60px;
-        min-height: 60px;
-        height: 60px;
-        font-size: 15px;
-        margin: 0px 25px 0px 0px;
-        border: 3px solid #07827f;
-    }
+  .backButton {
+    width: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    height: 60px;
+    font-size: 15px;
+    margin: 0px 25px 0px 0px;
+    border: 3px solid #07827f;
+  }
 }
-

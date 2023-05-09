@@ -1,147 +1,177 @@
-.cardLinkBox{
-    text-decoration: none;
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
+.cardLinkBox {
+  text-decoration: none;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    user-select: none;
+  user-select: none;
 
-    position: relative;
-    animation: entering 2s forwards ease-in-out, floatingX 2s infinite linear, floatingY 3s infinite linear;
+  position: relative;
+  animation: entering 2s forwards ease-in-out, floatingX 2s infinite linear,
+    floatingY 3s infinite linear;
 
-    outline-offset: -125px;
-    cursor: pointer;
-    transition: 0.3s;
+  outline-offset: -125px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.blueColor{
-    background: #ffffff;
-    border: 7px solid #07827f;
+.blueColor {
+  background: #ffffff;
+  border: 7px solid #07827f;
 }
-.blueColor:hover{
-    background: #07827f;
-    transition: all 250ms ease-in-out;
+.blueColor:hover {
+  background: #07827f;
+  transition: all 250ms ease-in-out;
 
-    outline: 8px solid #07827f;
-    outline-offset: 14px;
+  outline: 8px solid #07827f;
+  outline-offset: 14px;
 }
-.yellowColor{
-    background: #ffffff;
-    border: 7px solid #c4a91b;
+.yellowColor {
+  background: #ffffff;
+  border: 7px solid #c4a91b;
 }
-.yellowColor:hover{
-    background: #c4a91b;
-    transition: all 250ms ease-in-out;
+.yellowColor:hover {
+  background: #c4a91b;
+  transition: all 250ms ease-in-out;
 
-    outline: 8px solid #c4a91b;
-    outline-offset: 14px;
-}
-
-
-.cardLinkBox:nth-child(1){
-    animation-delay: 0.7s, 2.7s, 2.7s;
-}
-.cardLinkBox:nth-child(2){
-    animation-delay: 0.5s, 2.5s, 2.5s;
-}
-.cardLinkBox:nth-child(3){
-    animation-delay: 0.3s, 2.3s, 2.3s;
-}
-.cardLinkBox:nth-child(4){
-    animation-delay: 0.1s, 2.1s, 2.1s;
+  outline: 8px solid #c4a91b;
+  outline-offset: 14px;
 }
 
+.cardLinkBox:nth-child(1) {
+  animation-delay: 0.7s, 2.7s, 2.7s;
+}
+.cardLinkBox:nth-child(2) {
+  animation-delay: 0.5s, 2.5s, 2.5s;
+}
+.cardLinkBox:nth-child(3) {
+  animation-delay: 0.3s, 2.3s, 2.3s;
+}
+.cardLinkBox:nth-child(4) {
+  animation-delay: 0.1s, 2.1s, 2.1s;
+}
 
-@media screen and (min-width: 768px){
-    .cardLinkBox{
-        left: -100%;
+@media screen and (min-width: 768px) {
+  .cardLinkBox {
+    left: -100%;
+  }
+
+  @keyframes entering {
+    0% {
+      position: relative;
+      left: -100%;
     }
-    
-    @keyframes entering {
-        0% {position: relative; left: -100%; }
-        80% {left: 20%;}
-        100% {position: relative; left: 0%;}
+    80% {
+      left: 20%;
     }
+    100% {
+      position: relative;
+      left: 0%;
+    }
+  }
 }
 
 @keyframes floatingX {
-    0% {left: 0px;}
-    33% {left: 2.5px;}
-    66% {left: -2.5px;}
-    100% {left: 0px;}
+  0% {
+    left: 0px;
+  }
+  33% {
+    left: 2.5px;
+  }
+  66% {
+    left: -2.5px;
+  }
+  100% {
+    left: 0px;
+  }
 }
 
 @keyframes floatingY {
-    0% {top: 0px;}
-    33% {top: 2.5px;}
-    66% {top: -2.5px;}
-    100% {top: 0px;}
+  0% {
+    top: 0px;
+  }
+  33% {
+    top: 2.5px;
+  }
+  66% {
+    top: -2.5px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
-.cardLinkBox:nth-of-type(1){
-    margin: 0px 50px 0px 100px;
+.cardLinkBox:nth-of-type(1) {
+  margin: 0px 50px 0px 100px;
 }
-.cardLinkBox:nth-of-type(n):not(:first-of-type):not(:last-of-type){
-    margin: 0px 50px 0px 0px;
+.cardLinkBox:nth-of-type(n):not(:first-of-type):not(:last-of-type) {
+  margin: 0px 50px 0px 0px;
 }
-.cardLinkBox:nth-last-of-type(1){
-    margin: 0px 100px 0px 0px;
-}
-
-.linkTextContext{
-    height: 80%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.cardLinkBox:nth-last-of-type(1) {
+  margin: 0px 100px 0px 0px;
 }
 
-.linkTitle{
-    color: #000000;
-    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
-    font-size: 23px;
-    font-weight: bold;
-    text-align: center;
+.linkTextContext {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.linkTitle {
+  color: #000000;
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
+}
 
-@media screen and (max-width: 768px){
-    .cardLinkBox{
-        /* top: -200vh; */
-        height: 175px;
-        width: 175px;
-        outline-offset: -87.5px;
-    }
+@media screen and (max-width: 768px) {
+  .cardLinkBox {
+    /* top: -200vh; */
+    height: 175px;
+    width: 175px;
+    outline-offset: -87.5px;
+  }
 
-    .cardLinkBox:nth-of-type(1){
-        margin: 100px 0px 0px 0px;
-    }
-    .cardLinkBox:nth-of-type(n):not(:first-of-type):not(:last-of-type){
-        margin: 50px 0px 0px 0px;
-    }
-    .cardLinkBox:nth-last-of-type(1){
-        margin: 50px 0px 100px 0px;
-    }
-        
-    @keyframes entering {
-        0% {position: relative; top: -200vh; }
-        80% {top: 100px;}
-        100% {position: relative; top: 0px;}
-    }
+  .cardLinkBox:nth-of-type(1) {
+    margin: 100px 0px 0px 0px;
+  }
+  .cardLinkBox:nth-of-type(n):not(:first-of-type):not(:last-of-type) {
+    margin: 50px 0px 0px 0px;
+  }
+  .cardLinkBox:nth-last-of-type(1) {
+    margin: 50px 0px 100px 0px;
+  }
 
-    .blueColor:hover{
-        background: #ffffff;
+  @keyframes entering {
+    0% {
+      position: relative;
+      top: -200vh;
     }
-    .yellowColor:hover{
-        background: #ffffff;
+    80% {
+      top: 100px;
     }
+    100% {
+      position: relative;
+      top: 0px;
+    }
+  }
 
-    .linkTitle{
-        font-size: 16px;
-    }
+  .blueColor:hover {
+    background: #ffffff;
+  }
+  .yellowColor:hover {
+    background: #ffffff;
+  }
+
+  .linkTitle {
+    font-size: 16px;
+  }
 }

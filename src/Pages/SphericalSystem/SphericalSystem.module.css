@@ -1,97 +1,108 @@
-html{
-    overflow-x: initial;
-    overflow-y: initial;
+html {
+  overflow-x: initial;
+  overflow-y: initial;
 }
 
-.containerSphericalSystem{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+.containerSphericalSystem {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 
-    width: 100%;
-    height: min-content;
-    padding-top: 100px;
+  width: 100%;
+  height: min-content;
+  padding-top: 100px;
 }
 
-.textSphericalSystem{
-    width: 33%;
-    margin: 0 30px;
+.textSphericalSystem {
+  width: 33%;
+  margin: 0 30px;
 
-    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
-    font-size: 23px;
-    text-align: justify;
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 23px;
+  text-align: justify;
 }
 
-.normalList{
-    list-style: initial;
-    padding-left: 40px;
+.normalList {
+  list-style: initial;
+  padding-left: 40px;
 }
 
-.initDiv{
-    background: #ffffff;
-    border: 7px solid #07827f;
+.initDiv {
+  background: #ffffff;
+  border: 7px solid #07827f;
 
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    animation: exiting 1s forwards ease-in-out;
+  animation: exiting 1s forwards ease-in-out;
 }
 
 @keyframes exiting {
-    0% {opacity: 1}
-    99% {opacity: 0; width: 100%; height: 100%}
-    100% {opacity: 0; display: none; width: 0; height: 0;}
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    width: 0;
+    height: 0;
+  }
 }
 
-.linkTextContext{
-    height: 80%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.linkTextContext {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.linkTitle{
-    color: #000000;
-    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
-    font-size: 23px;
-    font-weight: bold;
-    text-align: center;
+.linkTitle {
+  color: #000000;
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
-    .containerSphericalSystem{
-        flex-direction: column;
-        align-items: center;
-        padding-top: 0px;
-    }
+  .containerSphericalSystem {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0px;
+  }
 
-    .textSphericalSystem{
-        width: 80%;
-        margin: 0;
-        font-size: 16px;
-    }
+  .textSphericalSystem {
+    width: 80%;
+    margin: 0;
+    font-size: 16px;
+  }
 
-    .textSphericalSystem:nth-child(1){
-        margin: 0 0 25px 0;
-        padding: 0 0 10px 0;
-        border-bottom: 1px solid black;
-    }
+  .textSphericalSystem:nth-child(1) {
+    margin: 0 0 25px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid black;
+  }
 
-    .textSphericalSystem:nth-child(2){
-        margin: 0 0 25px 0;
-        padding: 0 0 10px 0;
-        border-bottom: 1px solid black;
-    }
-    .textSphericalSystem:nth-child(3){
-        padding: 0 0 50px 0;
-    }
+  .textSphericalSystem:nth-child(2) {
+    margin: 0 0 25px 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid black;
+  }
+  .textSphericalSystem:nth-child(3) {
+    padding: 0 0 50px 0;
+  }
 }

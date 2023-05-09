@@ -1,18 +1,18 @@
-.divVideo{
-    /* background-image: url(/public/video/subject1/startVideo.jpg); */
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+.divVideo {
+  /* background-image: url(/public/video/subject1/startVideo.jpg); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 
-    position: absolute;
-    /* width: 1592px; */
-    width: 100%;
-    min-width: 390px;
-    height: 597px;
-    z-index: -1;
+  position: absolute;
+  /* width: 1592px; */
+  width: 100%;
+  min-width: 390px;
+  height: 597px;
+  z-index: -1;
 }
 
-.videoElement{
-    width: 100%;
-    height: 100%;
+.videoElement {
+  width: 100%;
+  height: 100%;
 }

@@ -1,25 +1,25 @@
-.TextArea{
-    width: 33%;
-    height: 100%;
-    margin: auto;
+.TextArea {
+  width: 33%;
+  height: 100%;
+  margin: auto;
 }
 
-.TextAreaText{
-    margin: 0 10px 0 20px;
+.TextAreaText {
+  margin: 0 10px 0 20px;
 
-    color: #000000;
-    font-family: 'Tenor Sans', 'Aileron thin', sans-serif;
-    font-size: 24px;
-    text-align: center;
+  color: #000000;
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 24px;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
-    .TextArea{
-        width: 80%;
-        margin: 25px 0px;
-    }
+  .TextArea {
+    width: 80%;
+    margin: 25px 0px;
+  }
 
-    .TextAreaText{
-        font-size: 16px;
-    }
+  .TextAreaText {
+    font-size: 16px;
+  }
 }
