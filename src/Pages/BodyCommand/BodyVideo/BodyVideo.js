@@ -18,6 +18,7 @@ function BodyVideo(props) {
         onEnded={onEnded}
         src={src}
         preload="auto"
+        playsInline
       ></video>
     </div>
   );
