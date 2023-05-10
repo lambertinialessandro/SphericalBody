@@ -43,13 +43,7 @@
 
   transition: all 250ms ease-in-out;
 }
-.blueColor:hover {
-  background: #07827f;
-  color: #ffffff;
 
-  outline: 6px solid #07827f;
-  outline-offset: 7px;
-}
 .yellowColor {
   background: #ffffff;
   border: 5px solid #c4a91b;
@@ -57,17 +51,30 @@
 
   transition: all 250ms ease-in-out;
 }
-.yellowColor:hover {
+
+.blueColor.active {
+  background: #07827f;
+  color: #ffffff;
+}
+.yellowColor.active {
   background: #c4a91b;
   color: #ffffff;
+}
 
-  outline: 6px solid #c4a91b;
-  outline-offset: 7px;
+@media screen and (min-width: 768px) {
+  .blueColor:hover.active {
+    outline: 6px solid #07827f;
+    outline-offset: 7px;
+  }
+  .yellowColor:hover.active {
+    outline: 6px solid #c4a91b;
+    outline-offset: 7px;
+  }
 }
 
 .circleHead {
-  height: 80px;
-  width: 80px;
+  height: 100px;
+  width: 100px;
 
   font-size: 36px;
   line-height: 75px;
@@ -84,8 +91,8 @@
   z-index: 2;
 }
 .circlePelvis {
-  height: 65px;
-  width: 65px;
+  height: 100px;
+  width: 100px;
 
   font-size: 32px;
   line-height: 57px;
@@ -105,76 +112,90 @@
 /* CENTRAL CORE */
 .bodyPositionHead {
   position: absolute;
-  left: 83px;
-  top: 0px;
+  left: 145px;
+  top: -10px;
 }
 .bodyPositionChest {
   position: absolute;
-  left: 91px;
-  top: 123px;
+  left: 165px;
+  top: 115px;
 }
 .bodyPositionPelvis {
   position: absolute;
-  left: 89px;
-  top: 240px;
+  left: 145px;
+  top: 210px;
 }
 
 /* RIGHT ARM */
 .bodyPositionShoulderR {
   position: absolute;
-  left: 155px;
-  top: 81px;
+  left: 227px;
+  top: 75px;
 }
 .bodyPositionElbowR {
   position: absolute;
-  left: 176px;
-  top: 168px;
+  left: 254px;
+  top: 173px;
 }
 .bodyPositionHandR {
   position: absolute;
-  left: 203px;
-  top: 250px;
+  left: 280px;
+  top: 255px;
 }
 
 /* LEFT ARM */
 .bodyPositionShoulderL {
   position: absolute;
-  left: 34px;
-  top: 82px;
+  left: 113px;
+  top: 75px;
 }
 .bodyPositionElbowL {
   position: absolute;
-  left: 13px;
-  top: 169px;
+  left: 83px;
+  top: 173px;
 }
 .bodyPositionHandL {
   position: absolute;
-  left: -11px;
-  top: 247px;
+  left: 60px;
+  top: 255px;
 }
 
 /* RIGHT LEG */
 .bodyPositionKneeR {
   position: absolute;
-  left: 54px;
-  top: 380px;
+  left: 212px;
+  top: 378px;
 }
 .bodyPositionFootR {
   position: absolute;
-  left: 63px;
-  top: 508px;
+  left: 213px;
+  top: 505px;
 }
 
 /* LEFT LEG */
 .bodyPositionKneeL {
   position: absolute;
-  left: 139px;
-  top: 379px;
+  left: 131px;
+  top: 378px;
 }
 .bodyPositionFootL {
   position: absolute;
-  left: 133px;
-  top: 508px;
+  left: 134px;
+  top: 505px;
+}
+
+.disabled {
+  transition: all 400ms;
+  background: #ffffff !important;
+  border: 5px solid #8b8b8b !important;
+  color: #000000 !important;
+}
+.disabled:hover {
+  outline: 0px solid #000000 !important;
+  outline-offset: 0px !important;
+}
+.disabled.divBody {
+  opacity: 0;
 }
 
 @media screen and (max-width: 768px) {

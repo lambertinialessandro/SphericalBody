@@ -78,7 +78,6 @@ html {
   .containerAbstract {
     display: flex;
     flex-direction: column;
-    height: 100vh;
     align-items: center;
     margin-top: 0;
   }
@@ -86,5 +85,9 @@ html {
   .textAbstract {
     font-size: 16px;
     margin: inherit;
+  }
+
+  .linkTitle {
+    font-size: 15px;
   }
 }

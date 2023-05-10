@@ -32,23 +32,25 @@
   background: #ffffff;
   border: 7px solid #07827f;
 }
-.blueColor:hover {
-  background: #07827f;
-  transition: all 250ms ease-in-out;
-
-  outline: 8px solid #07827f;
-  outline-offset: 14px;
-}
 .yellowColor {
   background: #ffffff;
   border: 7px solid #c4a91b;
 }
-.yellowColor:hover {
-  background: #c4a91b;
-  transition: all 250ms ease-in-out;
+@media screen and (min-width: 768px) {
+  .blueColor:hover {
+    background: #07827f;
+    transition: all 250ms ease-in-out;
 
-  outline: 8px solid #c4a91b;
-  outline-offset: 14px;
+    outline: 8px solid #07827f;
+    outline-offset: 14px;
+  }
+  .yellowColor:hover {
+    background: #c4a91b;
+    transition: all 250ms ease-in-out;
+
+    outline: 8px solid #c4a91b;
+    outline-offset: 14px;
+  }
 }
 
 .cardLinkBox:nth-child(1) {
@@ -116,6 +118,7 @@
     border: 4px solid #07827f;
   }
   .yellowColor {
+    background: #ffffff;
     border: 4px solid #c4a91b;
   }
 

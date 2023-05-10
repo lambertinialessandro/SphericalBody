@@ -40,10 +40,6 @@
   animation: 1s show forwards;
   z-index: 3;
 }
-.disabled {
-  display: none;
-  animation: 1s hide forwards;
-}
 
 @keyframes show {
   0% {

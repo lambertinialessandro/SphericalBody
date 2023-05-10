@@ -6,7 +6,6 @@ function CircleButton(props) {
   return (
     <div
       className={`
-        ${disabled ? classes.disabled : ""} 
           ${classes.container} 
           ${classesContainer}
           `}
@@ -16,7 +15,9 @@ function CircleButton(props) {
           ${classes.circleBig} 
           ${classesCircle}
           `}
-        onClick={onClick}
+        onClick={() => {
+          if (!disabled) onClick();
+        }}
       >
         {text}
       </div>

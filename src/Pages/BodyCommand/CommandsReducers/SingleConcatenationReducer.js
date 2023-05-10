@@ -1,3 +1,21 @@
+const enabledCharacter = {
+  HEAD: false,
+  CHEST: false,
+  PELVIS: false,
+  SHOULDER_R: false,
+  ELBOW_R: false,
+  HAND_R: false,
+  SHOULDER_L: false,
+  ELBOW_L: false,
+  HAND_L: false,
+  HIP_R: false,
+  KNEE_R: false,
+  FOOT_R: false,
+  HIP_L: false,
+  KNEE_L: false,
+  FOOT_L: false,
+};
+
 export const initialState = {
   videoSubject: "./video/Dancer1/",
   number: 0,
@@ -6,6 +24,7 @@ export const initialState = {
   listActions: [],
 
   disabled: false,
+  enabledCurrent: enabledCharacter,
 
   // CENTRAL CORE
   headText: "",
@@ -72,15 +91,24 @@ export function reducerBody(state, action) {
   } else if (action.type === "RESET") {
     return initialState;
   } else if (action.type === "RESET_ACTIONS") {
-    return { ...initialState, videoSubject: state.videoSubject };
+    return {
+      ...initialState,
+      videoSubject: state.videoSubject,
+      enabledCurrent: state.enabledCurrent,
+    };
   } else if (action.type === "CHANGE_VIDEO") {
     return {
       ...state,
       videoSubject: action.videoSubject ?? state.videoSubject,
     };
+  } else if (action.type === "ENABLE_BUTTONS") {
+    return {
+      ...state,
+      enabledCurrent: action.enabledCurrent,
+    };
   } // CENTRAL CORE
   else if (action.type === "HEAD") {
-    if (state.headText) {
+    if (!state.enabledCurrent["HEAD"] || state.headText) {
       return state;
     }
 
@@ -91,7 +119,7 @@ export function reducerBody(state, action) {
       listActions: [...state.listActions, state.videoSubject + "HEAD.mp4"],
     };
   } else if (action.type === "CHEST") {
-    if (state.chestText) {
+    if (!state.enabledCurrent["CHEST"] || state.chestText) {
       return state;
     }
 
@@ -102,7 +130,7 @@ export function reducerBody(state, action) {
       listActions: [...state.listActions, state.videoSubject + "CHEST.mp4"],
     };
   } else if (action.type === "PELVIS") {
-    if (state.pelvisText) {
+    if (!state.enabledCurrent["PELVIS"] || state.pelvisText) {
       return state;
     }
 
@@ -114,7 +142,7 @@ export function reducerBody(state, action) {
     };
   } // RIGHT ARM
   else if (action.type === "SHOULDER_R") {
-    if (state.ShoulderRText) {
+    if (!state.enabledCurrent["SHOULDER_R"] || state.ShoulderRText) {
       return state;
     }
 
@@ -128,7 +156,7 @@ export function reducerBody(state, action) {
       ],
     };
   } else if (action.type === "ELBOW_R") {
-    if (state.ElbowRText) {
+    if (!state.enabledCurrent["ELBOW_R"] || state.ElbowRText) {
       return state;
     }
 
@@ -139,7 +167,7 @@ export function reducerBody(state, action) {
       listActions: [...state.listActions, state.videoSubject + "ELBOW_R.mp4"],
     };
   } else if (action.type === "HAND_R") {
-    if (state.HandRText) {
+    if (!state.enabledCurrent["HAND_R"] || state.HandRText) {
       return state;
     }
 
@@ -151,7 +179,7 @@ export function reducerBody(state, action) {
     };
   } // LEFT ARM
   else if (action.type === "SHOULDER_L") {
-    if (state.ShoulderLText) {
+    if (!state.enabledCurrent["SHOULDER_L"] || state.ShoulderLText) {
       return state;
     }
 
@@ -165,7 +193,7 @@ export function reducerBody(state, action) {
       ],
     };
   } else if (action.type === "ELBOW_L") {
-    if (state.ElbowLText) {
+    if (!state.enabledCurrent["ELBOW_L"] || state.ElbowLText) {
       return state;
     }
 
@@ -176,7 +204,7 @@ export function reducerBody(state, action) {
       listActions: [...state.listActions, state.videoSubject + "ELBOW_L.mp4"],
     };
   } else if (action.type === "HAND_L") {
-    if (state.HandLText) {
+    if (!state.enabledCurrent["HAND_L"] || state.HandLText) {
       return state;
     }
 
@@ -188,7 +216,7 @@ export function reducerBody(state, action) {
     };
   } // RIGHT LEG
   else if (action.type === "KNEE_R") {
-    if (state.KneeRText) {
+    if (!state.enabledCurrent["KNEE_R"] || state.KneeRText) {
       return state;
     }
 
@@ -199,7 +227,7 @@ export function reducerBody(state, action) {
       listActions: [...state.listActions, state.videoSubject + "KNEE_R.mp4"],
     };
   } else if (action.type === "FOOT_R") {
-    if (state.FootRText) {
+    if (!state.enabledCurrent["FOOT_R"] || state.FootRText) {
       return state;
     }
 
@@ -211,7 +239,7 @@ export function reducerBody(state, action) {
     };
   } // LEFT LEG
   else if (action.type === "KNEE_L") {
-    if (state.KneeLText) {
+    if (!state.enabledCurrent["KNEE_L"] || state.KneeLText) {
       return state;
     }
 
@@ -222,7 +250,7 @@ export function reducerBody(state, action) {
       listActions: [...state.listActions, state.videoSubject + "KNEE_L.mp4"],
     };
   } else if (action.type === "FOOT_L") {
-    if (state.FootLText) {
+    if (!state.enabledCurrent["FOOT_L"] || state.FootLText) {
       return state;
     }
 

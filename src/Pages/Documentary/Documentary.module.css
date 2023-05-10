@@ -72,3 +72,9 @@ html {
   font-weight: bold;
   text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+  .linkTitle {
+    font-size: 15px;
+  }
+}

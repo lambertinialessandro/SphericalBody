@@ -20,5 +20,12 @@
 @media screen and (max-width: 768px) {
   .divVideo {
     margin-bottom: 25px;
+    position: absolute;
+    opacity: 0.5;
+  }
+
+  .fadeIn {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
   }
 }

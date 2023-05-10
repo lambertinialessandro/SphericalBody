@@ -41,6 +41,11 @@
   }
 }
 
+.divSmallManager {
+  display: flex;
+  max-width: 66%;
+}
+
 .linkTextContext {
   height: 80%;
   width: 80%;
@@ -57,8 +62,23 @@
   text-align: center;
 }
 
+.fadeOut {
+  transition: all 250ms ease-in-out;
+  opacity: 0;
+}
+
 @media screen and (max-width: 768px) {
   .Container {
     flex-direction: column;
+  }
+
+  .divSmallManager {
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+  }
+
+  .linkTitle {
+    font-size: 15px;
   }
 }

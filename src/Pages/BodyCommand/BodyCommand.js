@@ -1,4 +1,4 @@
-import { useRef, useReducer } from "react";
+import { useRef, useReducer, Fragment } from "react";
 
 import BodyText from "./BodyText/BodyText";
 import BodyVideo from "./BodyVideo/BodyVideo";
@@ -27,19 +27,22 @@ function BodyCommand({
 
       <div className={classes.Container}>
         <BodyText context={leftText.context} />
-        <BodyController
-          videoRef={videoRef}
-          stateBody={stateBody}
-          dispatch={dispatch}
-        />
-        <BodyVideo
-          stateBody={stateBody}
-          videoRef={videoRef}
-          onEnded={(e) => {
-            console.log("e", e);
-            dispatch({ videoRef, type: "STOP_VIDEO" });
-          }}
-        />
+        <div className={classes.divSmallManager}>
+          <BodyController
+            classesNames={stateBody.disabled ? classes.fadeOut : ""}
+            videoRef={videoRef}
+            stateBody={stateBody}
+            dispatch={dispatch}
+          />
+          <BodyVideo
+            stateBody={stateBody}
+            videoRef={videoRef}
+            isStarted={stateBody.disabled}
+            onEnded={(e) => {
+              dispatch({ videoRef, type: "STOP_VIDEO" });
+            }}
+          />
+        </div>
       </div>
     </>
   );

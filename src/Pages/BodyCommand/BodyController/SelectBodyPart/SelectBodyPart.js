@@ -4,20 +4,20 @@ import FooterButtons from "./FooterButtons";
 import classes from "./SelectBodyPart.module.css";
 
 function SelectBodyPart(props) {
-  const { BodyControllers, dispatch, onClickBack, onClickReset, onClickStart } =
-    props;
+  const { BodyControllers, dispatch, src, footerOptions } = props;
   return (
     <div className={classes.divBodyPart}>
-      <div className={classes.divBodyBackground}>
+      <div
+        className={classes.divBodyBackground}
+        style={{
+          backgroundImage: 'url("' + src + '")',
+        }}
+      >
         {BodyControllers.map((elem) => (
           <CircleButton {...elem} dispatch={dispatch} />
         ))}
       </div>
-      <FooterButtons
-        onClickBack={onClickBack}
-        onClickReset={onClickReset}
-        onClickStart={onClickStart}
-      />
+      <FooterButtons {...footerOptions} />
     </div>
   );
 }

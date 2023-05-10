@@ -8,19 +8,26 @@
 
 .actionButton {
   text-decoration: none;
-  background: #ffffff;
-  border: 5px solid #07827f;
   height: 75px;
   width: 75px;
   border-radius: 50%;
   position: relative;
-  animation: floatingX 2s 2s infinite linear, floatingY 3s 2s infinite linear;
-  color: #000000;
+
   font-family: "Tenor Sans", "Aileron thin", sans-serif;
   font-size: 16px;
   font-weight: bold;
+}
+.blueButton {
+  background: #ffffff;
+  border: 5px solid #07827f;
+  color: #000000;
+  animation: floatingX 2s 2s infinite linear, floatingY 3s 2s infinite linear;
   cursor: pointer;
 }
+.disabled {
+  border: 5px solid #8b8b8b;
+}
+
 .actionButton:nth-child(1) {
   animation-delay: 1.8s, 2.8s;
 }
