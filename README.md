@@ -4,6 +4,8 @@
 >
 > Alessandro Lambertini;
 
+### [Click here to see the projects.](https://lambertinialessandro.github.io/SphericalBody/)
+
 ## 🙋 Info
 
 for any doubt or clarification contact me on:
