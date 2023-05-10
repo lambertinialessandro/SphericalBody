@@ -6,7 +6,7 @@ function ButtonLink(props) {
   return (
     <div
       className={`${classes.cardLinkBox} ${
-        index % 2 == 0 ? classes.blueColor : classes.yellowColor
+        index % 2 === 0 ? classes.blueColor : classes.yellowColor
       }`}
       onClick={(event) => {
         onClick(event, path);

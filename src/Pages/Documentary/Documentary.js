@@ -10,7 +10,11 @@ function Documentary() {
       </div>
 
       <div className={classes.documentaryContainer}>
-        <img className={classes.documentaryImage} src="./images/play.png" />
+        <img
+          className={classes.documentaryImage}
+          src="./images/play.png"
+          alt="play"
+        />
       </div>
     </>
   );

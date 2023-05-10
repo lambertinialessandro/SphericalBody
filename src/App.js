@@ -26,7 +26,7 @@ function App() {
     },
     {
       key: "APP",
-      path: "/MultipleCommand",
+      path: "/App",
       component: (
         <BodyCommand
           title="APP"
