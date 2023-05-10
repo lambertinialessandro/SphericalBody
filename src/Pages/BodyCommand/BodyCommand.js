@@ -39,7 +39,7 @@ function BodyCommand({
             videoRef={videoRef}
             isStarted={stateBody.disabled}
             onEnded={(e) => {
-              dispatch({ videoRef, type: "STOP_VIDEO" });
+              dispatch({ videoRef, type: "NEXT ACTION" });
             }}
           />
         </div>
