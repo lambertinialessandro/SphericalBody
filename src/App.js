@@ -20,13 +20,13 @@ function App() {
   const links = [
     {
       key: "ABSTRACT",
-      path: "/SphericalBody/Abstract",
+      path: "/Abstract",
       component: <Abstract />,
       title: "ABSTRACT",
     },
     {
       key: "APP",
-      path: "/SphericalBody/MultipleCommand",
+      path: "/MultipleCommand",
       component: (
         <BodyCommand
           title="APP"
@@ -39,13 +39,13 @@ function App() {
     },
     {
       key: "SPHERICAL_SYSTEM",
-      path: "/SphericalBody/SphericalSystem",
+      path: "/SphericalSystem",
       component: <SphericalSystem />,
       title: "SPHERICAL SYSTEM",
     },
     {
       key: "DOCUMENTARY",
-      path: "/SphericalBody/Documentary",
+      path: "/Documentary",
       component: <Documentary />,
       title: "DOCUMENTARY",
     },
@@ -66,14 +66,14 @@ function App() {
         <Redirect to="/Home" />
       </Route>
 
-      <Route path="/SphericalBody/Home">
+      <Route path="/Home">
         <Home links={homeLinks} />
       </Route>
 
       {pages}
 
       <Route path="*">
-        <Redirect to="/SphericalBody/Home" />
+        <Redirect to="/Home" />
       </Route>
     </Switch>
   );
