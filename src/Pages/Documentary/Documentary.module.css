@@ -6,20 +6,17 @@ html {
 .documentaryContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
 
   height: 100vh;
   width: 100%;
-  position: absolute;
-  top: 0;
-
-  z-index: -1;
+  margin-top: 50px;
 }
 
-.documentaryImage {
-  width: 500px;
-  /* height: 500px; */
-  height: auto;
+.documentaryVideo {
+  margin: 0 10%;
+  width: 100%;
+  max-width: 880px;
+  height: fit-content;
 }
 
 .initDiv {
@@ -76,5 +73,9 @@ html {
 @media screen and (max-width: 768px) {
   .linkTitle {
     font-size: 15px;
+  }
+
+  .documentaryVideo {
+    margin: 0 5%;
   }
 }

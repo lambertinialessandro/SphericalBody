@@ -10,11 +10,13 @@ function Documentary() {
       </div>
 
       <div className={classes.documentaryContainer}>
-        <img
-          className={classes.documentaryImage}
-          src="./images/play.png"
-          alt="play"
-        />
+        <iframe
+          className={classes.documentaryVideo}
+          src="https://www.youtube.com/embed/vmX7U54kOHk"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
       </div>
     </>
   );
