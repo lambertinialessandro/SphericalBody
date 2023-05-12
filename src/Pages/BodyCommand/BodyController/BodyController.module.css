@@ -5,11 +5,13 @@
   animation: show 0.25s forwards;
 }
 
-.fadeOutNoPC {
-  opacity: 1 !important;
+@media screen and (min-width: 768px) {
+  .fadeOutNoPC {
+    opacity: 1 !important;
+  }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .fadeOutNoPC {
     animation: hide 0.25s forwards;
   }
