@@ -64,12 +64,15 @@ export function reducerBody(state, action) {
     videoRef1.current.src = state.listActions[state.curAction];
     videoRef1.current.currentTime = 0.01;
     videoRef1.current.load();
-    videoRef1.current.play();
 
     if (state.listActions.length > 1) {
       videoRef2.current.src = state.listActions[state.curAction + 1];
       videoRef2.current.currentTime = 0.01;
     }
+
+    setTimeout(() => {
+      videoRef1.current.play();
+    }, 1000);
 
     return { ...state, disabled: true, curAction: state.curAction + 1 };
   } else if (action.type === "NEXT_ACTION") {
