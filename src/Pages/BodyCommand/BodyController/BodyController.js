@@ -27,7 +27,6 @@ const initialState = {
   current: statesEnum.selectCharacter,
   nextState: null,
   fadeOut: false,
-  notPC: false,
   fadeIn: false,
 };
 
@@ -38,7 +37,6 @@ const reducer = (state, action) => {
         ...state,
         fadeOut: true,
         fadeIn: false,
-        notPC: !!action.notPC,
         nextState: action.nextState,
       };
     case "FADEOUT_FADEIN":
@@ -160,8 +158,8 @@ function BodyController({
     });
   };
   const onClickStart = () => {
-    dispatch({ type: "START", videoRef1, videoRef2 });
-    dispatchAnimation({ type: "FADEOUT_START", notPC: true });
+    dispatch({ type: "START", videoRef1, videoRef2, notPC: true });
+    dispatchAnimation({ type: "FADEOUT_START" });
   };
   const onClickReset = () => {
     dispatch({ type: "RESET_ACTIONS" });
@@ -374,15 +372,12 @@ function BodyController({
     },
   ];
 
-  console.log("animationManager.fadeOut", animationManager.fadeOut);
-  console.log("animationManager.notPC", animationManager.notPC);
-
   return (
     <div
       id="mainDiv"
       className={`${classes.divBody} ${
         animationManager.fadeIn ? classes.fadeIn : ""
-      } ${animationManager.notPC ? classes.fadeOutNoPC : ""} ${
+      } ${stateBody.notPC ? classes.fadeOutNoPC : ""} ${
         animationManager.fadeOut ? classes.fadeOut : ""
       } ${stateBody.disabled ? classes.divBodyDisabled : ""} ${classesNames}`}
       onAnimationEnd={onAnimationEnd}

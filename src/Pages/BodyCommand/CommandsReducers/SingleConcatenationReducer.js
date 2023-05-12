@@ -21,6 +21,7 @@ export const initialState = {
   number: 0,
 
   curAction: 0,
+  notPC: false,
   listActions: [],
 
   disabled: false,
@@ -56,7 +57,6 @@ export function reducerBody(state, action) {
   const nextNumber = state.number + 1;
 
   if (action.type === "START") {
-    console.log("START");
     if (state.listActions.length === 0) {
       return state;
     }
@@ -79,7 +79,12 @@ export function reducerBody(state, action) {
       }
     }, 1000);
 
-    return { ...state, disabled: true, curAction: state.curAction + 1 };
+    return {
+      ...state,
+      disabled: true,
+      notPC: !!action.notPC,
+      curAction: state.curAction + 1,
+    };
   } else if (action.type === "NEXT_ACTION") {
     if (state.curAction < state.listActions.length) {
       if (state.curAction % 2 !== 0) {
@@ -128,7 +133,7 @@ export function reducerBody(state, action) {
       videoRef1.current.src = state.videoSubject + "IDLE.mp4";
       videoRef1.current.currentTime = 0;
 
-      return { ...state, disabled: false, curAction: 0 };
+      return { ...state, disabled: false, curAction: 0, notPC: false };
     }
   } else if (action.type === "STOP") {
     return { ...state, disabled: false };
