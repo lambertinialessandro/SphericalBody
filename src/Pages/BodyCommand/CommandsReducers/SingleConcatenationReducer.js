@@ -61,23 +61,28 @@ export function reducerBody(state, action) {
       return state;
     }
 
-    videoRef1.current.src = state.listActions[state.curAction];
-    videoRef1.current.currentTime = 0.01;
-    videoRef1.current.load();
-
-    if (state.listActions.length > 1) {
-      videoRef2.current.src = state.listActions[state.curAction + 1];
-      videoRef2.current.currentTime = 0.01;
-    }
+    videoRef2.current.src = state.listActions[state.curAction];
+    videoRef2.current.load();
 
     setTimeout(() => {
-      videoRef1.current.play();
+      videoRef1.current.style.opacity = 0;
+      videoRef1.current.style.transition = "all 0.5s cubic-bezier(0, 0, 1, 0)";
+      videoRef2.current.style.opacity = 1;
+      videoRef2.current.style.transition = "all 0.5s cubic-bezier(0, 0, 0, 1)";
+
+      videoRef2.current.currentTime = 0.01;
+      videoRef2.current.play();
+
+      if (state.listActions.length > 1) {
+        videoRef1.current.src = state.listActions[state.curAction + 1];
+        videoRef1.current.load();
+      }
     }, 1000);
 
     return { ...state, disabled: true, curAction: state.curAction + 1 };
   } else if (action.type === "NEXT_ACTION") {
     if (state.curAction < state.listActions.length) {
-      if (state.curAction % 2 === 0) {
+      if (state.curAction % 2 !== 0) {
         videoRef2.current.style.opacity = 0;
         videoRef2.current.style.transition =
           "all 0.5s cubic-bezier(0, 0, 1, 0)";
@@ -91,7 +96,6 @@ export function reducerBody(state, action) {
         setTimeout(() => {
           if (state.curAction + 1 < state.listActions.length) {
             videoRef2.current.src = state.listActions[state.curAction + 1];
-            videoRef2.current.currentTime = 0.01;
             videoRef2.current.load();
           }
         }, 500);
@@ -109,7 +113,6 @@ export function reducerBody(state, action) {
         setTimeout(() => {
           if (state.curAction + 1 < state.listActions.length) {
             videoRef1.current.src = state.listActions[state.curAction + 1];
-            videoRef1.current.currentTime = 0.01;
             videoRef1.current.load();
           }
         }, 500);
@@ -117,6 +120,11 @@ export function reducerBody(state, action) {
 
       return { ...state, curAction: state.curAction + 1 };
     } else {
+      videoRef2.current.style.opacity = 0;
+      videoRef2.current.style.transition = "all 0.5s cubic-bezier(0, 0, 1, 0)";
+      videoRef1.current.style.opacity = 1;
+      videoRef1.current.style.transition = "all 0.5s cubic-bezier(0, 0, 0, 1)";
+
       videoRef1.current.src = state.videoSubject + "IDLE.mp4";
       videoRef1.current.currentTime = 0;
 
@@ -125,11 +133,13 @@ export function reducerBody(state, action) {
   } else if (action.type === "STOP") {
     return { ...state, disabled: false };
   } else if (action.type === "STOP_VIDEO") {
-    videoRef1.current.src = state.videoSubject + "IDLE.mp4";
-    videoRef1.current.currentTime = 0;
-
-    videoRef1.current.style.opacity = 1;
     videoRef2.current.style.opacity = 0;
+    videoRef2.current.style.transition = "all 0.5s cubic-bezier(0, 0, 1, 0)";
+    videoRef1.current.style.opacity = 1;
+    videoRef1.current.style.transition = "all 0.5s cubic-bezier(0, 0, 0, 1)";
+
+    videoRef1.current.src = state.videoSubject + "IDLE.mp4";
+    videoRef1.current.currentTime = 0.01;
 
     return { ...state, disabled: false, curAction: 0 };
   } else if (action.type === "RESET") {
