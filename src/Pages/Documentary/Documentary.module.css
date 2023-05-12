@@ -14,9 +14,11 @@ html {
 
 .documentaryVideo {
   margin: 0 10%;
+
   width: 100%;
   max-width: 880px;
   height: fit-content;
+  aspect-ratio: 1.5;
 }
 
 .initDiv {
