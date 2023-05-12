@@ -81,7 +81,7 @@ export function reducerBody(state, action) {
     }, 1000);
 
     return { ...state, disabled: true, curAction: state.curAction + 1 };
-  } else if (action.type === "NEXT ACTION") {
+  } else if (action.type === "NEXT_ACTION") {
     if (state.curAction < state.listActions.length) {
       videoRef.current.pause();
       videoRef.current.src = state.listActions[state.curAction];

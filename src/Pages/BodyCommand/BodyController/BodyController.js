@@ -37,6 +37,7 @@ const reducer = (state, action) => {
         ...state,
         fadeOut: true,
         fadeIn: false,
+        notPC: !!action.notPC,
         nextState: action.nextState,
       };
     case "FADEOUT_FADEIN":
@@ -44,6 +45,7 @@ const reducer = (state, action) => {
         ...state,
         fadeOut: false,
         fadeIn: true,
+        notPC: !!action.notPC,
         current: state.nextState,
       };
     case "FADEIN_END":
@@ -51,6 +53,7 @@ const reducer = (state, action) => {
         ...state,
         fadeOut: false,
         fadeIn: false,
+        notPC: !!action.notPC,
       };
     default:
       return { ...state };
@@ -59,9 +62,10 @@ const reducer = (state, action) => {
 
 function BodyController({
   classesNames,
-  videoRef,
+  videoRef1,
+  videoRef2,
   stateBody,
-  dispatch /* , footer */,
+  dispatch,
 }) {
   const [animationManager, dispatchAnimation] = useReducer(
     reducer,
@@ -136,8 +140,8 @@ function BodyController({
   const onClickSelectCharacter2 = () => {
     setCharacter({
       id: 1,
-      colorBody: classes.yellowColor,
-      colorOther: classes.blueColor,
+      colorBody: classes.blueColor,
+      colorOther: classes.yellowColor,
       enabledCurrent: enabledCharacter2,
     });
     dispatch({ type: "CHANGE_VIDEO", videoSubject: "./video/Dancer2/" });
@@ -157,8 +161,8 @@ function BodyController({
     });
   };
   const onClickStart = () => {
-    dispatch({ type: "START", videoRef });
-    dispatchAnimation("FADEOUT_START");
+    dispatch({ type: "START", videoRef1, videoRef2 });
+    dispatchAnimation("FADEOUT_START", { notPC: true });
   };
   const onClickReset = () => {
     dispatch({ type: "RESET_ACTIONS" });
@@ -176,7 +180,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "HEAD" });
+        dispatch({ type: "HEAD" });
       },
       text: stateBody.headText,
       disabled: stateBody.disabled,
@@ -191,7 +195,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "CHEST" });
+        dispatch({ type: "CHEST" });
       },
       text: stateBody.chestText,
       disabled: stateBody.disabled,
@@ -206,7 +210,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "PELVIS" });
+        dispatch({ type: "PELVIS" });
       },
       text: stateBody.pelvisText,
       disabled: stateBody.disabled,
@@ -223,7 +227,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "SHOULDER_R" });
+        dispatch({ type: "SHOULDER_R" });
       },
       text: stateBody.ShoulderRText,
       disabled: stateBody.disabled,
@@ -238,7 +242,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "ELBOW_R" });
+        dispatch({ type: "ELBOW_R" });
       },
       text: stateBody.ElbowRText,
       disabled: stateBody.disabled,
@@ -253,7 +257,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "HAND_R" });
+        dispatch({ type: "HAND_R" });
       },
       text: stateBody.HandRText,
       disabled: stateBody.disabled,
@@ -270,7 +274,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "SHOULDER_L" });
+        dispatch({ type: "SHOULDER_L" });
       },
       text: stateBody.ShoulderLText,
       disabled: stateBody.disabled,
@@ -285,7 +289,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "ELBOW_L" });
+        dispatch({ type: "ELBOW_L" });
       },
       text: stateBody.ElbowLText,
       disabled: stateBody.disabled,
@@ -300,7 +304,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "HAND_L" });
+        dispatch({ type: "HAND_L" });
       },
       text: stateBody.HandLText,
       disabled: stateBody.disabled,
@@ -317,7 +321,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "KNEE_R" });
+        dispatch({ type: "KNEE_R" });
       },
       text: stateBody.KneeRText,
       disabled: stateBody.disabled,
@@ -332,7 +336,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "FOOT_R" });
+        dispatch({ type: "FOOT_R" });
       },
       text: stateBody.FootRText,
       disabled: stateBody.disabled,
@@ -349,7 +353,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "KNEE_L" });
+        dispatch({ type: "KNEE_L" });
       },
       text: stateBody.KneeLText,
       disabled: stateBody.disabled,
@@ -364,7 +368,7 @@ function BodyController({
         stateBody.disabled ? classes.disabled : "",
       ].join(" "),
       onClick: () => {
-        dispatch({ videoRef, type: "FOOT_L" });
+        dispatch({ type: "FOOT_L" });
       },
       text: stateBody.FootLText,
       disabled: stateBody.disabled,
@@ -376,7 +380,13 @@ function BodyController({
       id="mainDiv"
       className={`${classes.divBody} ${
         animationManager.fadeIn ? classes.fadeIn : ""
-      } ${animationManager.fadeOut ? classes.fadeOut : ""} ${classesNames}`}
+      } ${
+        animationManager.fadeOut
+          ? animationManager.notPC
+            ? classes.fadeOutNoPC
+            : classes.fadeOut
+          : ""
+      } ${stateBody.disabled ? classes.divBodyDisabled : ""} ${classesNames}`}
       onAnimationEnd={onAnimationEnd}
     >
       {animationManager.current === statesEnum.selectCharacter && (

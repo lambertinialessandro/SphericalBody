@@ -8,6 +8,8 @@
   max-width: 33%;
   width: 33%;
   height: 597px;
+
+  position: relative;
   z-index: -1;
 }
 
@@ -15,6 +17,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+}
+
+.disable {
+  opacity: 0;
 }
 
 *::-webkit-media-controls-panel {

@@ -51,7 +51,8 @@ export const initialState = {
 };
 
 export function reducerBody(state, action) {
-  const videoRef = action?.videoRef;
+  const videoRef1 = action?.videoRef1;
+  const videoRef2 = action?.videoRef2;
   const nextNumber = state.number + 1;
 
   if (action.type === "START") {
@@ -60,32 +61,72 @@ export function reducerBody(state, action) {
       return state;
     }
 
-    setTimeout(() => {
-      videoRef.current.src = state.listActions[state.curAction];
-      videoRef.current.currentTime = 0.01;
-      videoRef.current.play();
-    }, 1000); // TODO: cambiare il tempo
+    videoRef1.current.src = state.listActions[state.curAction];
+    videoRef1.current.currentTime = 0.01;
+    videoRef1.current.load();
+    videoRef1.current.play();
+
+    if (state.listActions.length > 1) {
+      videoRef2.current.src = state.listActions[state.curAction + 1];
+      videoRef2.current.currentTime = 0.01;
+    }
 
     return { ...state, disabled: true, curAction: state.curAction + 1 };
-  } else if (action.type === "NEXT ACTION") {
+  } else if (action.type === "NEXT_ACTION") {
     if (state.curAction < state.listActions.length) {
-      videoRef.current.pause();
-      videoRef.current.src = state.listActions[state.curAction];
-      videoRef.current.currentTime = 0.01;
-      videoRef.current.play();
+      if (state.curAction % 2 === 0) {
+        videoRef2.current.style.opacity = 0;
+        videoRef2.current.style.transition =
+          "all 0.5s cubic-bezier(0, 0, 1, 0)";
+        videoRef1.current.style.opacity = 1;
+        videoRef1.current.style.transition =
+          "all 0.5s cubic-bezier(0, 0, 0, 1)";
+
+        videoRef1.current.currentTime = 0.01;
+        videoRef1.current.play();
+
+        setTimeout(() => {
+          if (state.curAction + 1 < state.listActions.length) {
+            videoRef2.current.src = state.listActions[state.curAction + 1];
+            videoRef2.current.currentTime = 0.01;
+            videoRef2.current.load();
+          }
+        }, 500);
+      } else {
+        videoRef1.current.style.opacity = 0;
+        videoRef1.current.style.transition =
+          "all 0.5s cubic-bezier(0, 0, 1, 0)";
+        videoRef2.current.style.opacity = 1;
+        videoRef2.current.style.transition =
+          "all 0.5s cubic-bezier(0, 0, 0, 1)";
+
+        videoRef2.current.currentTime = 0.01;
+        videoRef2.current.play();
+
+        setTimeout(() => {
+          if (state.curAction + 1 < state.listActions.length) {
+            videoRef1.current.src = state.listActions[state.curAction + 1];
+            videoRef1.current.currentTime = 0.01;
+            videoRef1.current.load();
+          }
+        }, 500);
+      }
 
       return { ...state, curAction: state.curAction + 1 };
     } else {
-      videoRef.current.src = state.videoSubject + "IDLE.mp4";
-      videoRef.current.currentTime = 0;
+      videoRef1.current.src = state.videoSubject + "IDLE.mp4";
+      videoRef1.current.currentTime = 0;
 
       return { ...state, disabled: false, curAction: 0 };
     }
   } else if (action.type === "STOP") {
     return { ...state, disabled: false };
   } else if (action.type === "STOP_VIDEO") {
-    videoRef.current.src = state.videoSubject + "IDLE.mp4";
-    videoRef.current.currentTime = 0;
+    videoRef1.current.src = state.videoSubject + "IDLE.mp4";
+    videoRef1.current.currentTime = 0;
+
+    videoRef1.current.style.opacity = 1;
+    videoRef2.current.style.opacity = 0;
 
     return { ...state, disabled: false, curAction: 0 };
   } else if (action.type === "RESET") {

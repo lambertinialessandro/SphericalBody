@@ -5,6 +5,12 @@
   animation: show 0.25s forwards;
 }
 
+@media screen and (min-width: 768px) {
+  .fadeOutNoPC {
+    animation: hide 0.25s forwards;
+  }
+}
+
 @keyframes show {
   0% {
     opacity: 0;
@@ -42,6 +48,7 @@
   color: #000000;
 
   transition: all 250ms ease-in-out;
+  cursor: default;
 }
 
 .yellowColor {
@@ -50,6 +57,7 @@
   color: #000000;
 
   transition: all 250ms ease-in-out;
+  cursor: default;
 }
 
 .blueColor.active {
@@ -73,8 +81,8 @@
 }
 
 .circleHead {
-  height: 100px;
-  width: 100px;
+  height: 73px;
+  width: 73px;
 
   font-size: 36px;
   line-height: 75px;
@@ -82,8 +90,8 @@
   z-index: 2;
 }
 .circleChest {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
 
   font-size: 32px;
   line-height: 52px;
@@ -91,8 +99,8 @@
   z-index: 2;
 }
 .circlePelvis {
-  height: 100px;
-  width: 100px;
+  height: 87px;
+  width: 87px;
 
   font-size: 32px;
   line-height: 57px;
@@ -100,8 +108,8 @@
   z-index: 2;
 }
 .circleSmall {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 
   font-size: 22px;
   line-height: 50px;
@@ -112,76 +120,76 @@
 /* CENTRAL CORE */
 .bodyPositionHead {
   position: absolute;
-  left: 145px;
-  top: -10px;
+  left: 159px;
+  top: -4px;
 }
 .bodyPositionChest {
   position: absolute;
-  left: 165px;
-  top: 115px;
+  left: 171px;
+  top: 120px;
 }
 .bodyPositionPelvis {
   position: absolute;
-  left: 145px;
-  top: 210px;
+  left: 153px;
+  top: 216px;
 }
 
 /* RIGHT ARM */
 .bodyPositionShoulderR {
   position: absolute;
-  left: 227px;
-  top: 75px;
+  left: 231px;
+  top: 79px;
 }
 .bodyPositionElbowR {
   position: absolute;
-  left: 254px;
-  top: 173px;
+  left: 259px;
+  top: 179px;
 }
 .bodyPositionHandR {
   position: absolute;
-  left: 280px;
-  top: 255px;
+  left: 286px;
+  top: 258px;
 }
 
 /* LEFT ARM */
 .bodyPositionShoulderL {
   position: absolute;
-  left: 113px;
-  top: 75px;
+  left: 118px;
+  top: 79px;
 }
 .bodyPositionElbowL {
   position: absolute;
-  left: 83px;
-  top: 173px;
+  left: 90px;
+  top: 179px;
 }
 .bodyPositionHandL {
   position: absolute;
-  left: 60px;
-  top: 255px;
+  left: 65px;
+  top: 258px;
 }
 
 /* RIGHT LEG */
 .bodyPositionKneeR {
   position: absolute;
-  left: 212px;
-  top: 378px;
+  left: 219px;
+  top: 382px;
 }
 .bodyPositionFootR {
   position: absolute;
-  left: 213px;
-  top: 505px;
+  left: 217px;
+  top: 508px;
 }
 
 /* LEFT LEG */
 .bodyPositionKneeL {
   position: absolute;
-  left: 131px;
-  top: 378px;
+  left: 135px;
+  top: 382px;
 }
 .bodyPositionFootL {
   position: absolute;
-  left: 134px;
-  top: 505px;
+  left: 137px;
+  top: 508px;
 }
 
 .disabled {
@@ -190,12 +198,16 @@
   border: 5px solid #8b8b8b !important;
   color: #000000 !important;
 }
+.disabled.active {
+  background: #8b8b8b !important;
+  color: #ffffff !important;
+}
 .disabled:hover {
   outline: 0px solid #000000 !important;
   outline-offset: 0px !important;
 }
-.disabled.divBody {
-  opacity: 0;
+.divBodyDisabled {
+  filter: grayscale(100%);
 }
 
 @media screen and (max-width: 768px) {

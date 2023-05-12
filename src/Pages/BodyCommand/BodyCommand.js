@@ -1,4 +1,4 @@
-import { useRef, useReducer, Fragment } from "react";
+import { useRef, useReducer, Fragment, useState } from "react";
 
 import BodyText from "./BodyText/BodyText";
 import BodyVideo from "./BodyVideo/BodyVideo";
@@ -6,13 +6,9 @@ import BodyController from "./BodyController/BodyController";
 
 import classes from "./BodyCommand.module.css";
 
-function BodyCommand({
-  title,
-  leftText,
-  reducer,
-  initialState /* , footer */,
-}) {
-  const videoRef = useRef();
+function BodyCommand({ title, leftText, reducer, initialState }) {
+  const videoRef1 = useRef();
+  const videoRef2 = useRef();
 
   const [stateBody, dispatch] = useReducer(reducer, initialState);
 
@@ -30,16 +26,18 @@ function BodyCommand({
         <div className={classes.divSmallManager}>
           <BodyController
             classesNames={stateBody.disabled ? classes.fadeOut : ""}
-            videoRef={videoRef}
+            videoRef1={videoRef1}
+            videoRef2={videoRef2}
             stateBody={stateBody}
             dispatch={dispatch}
           />
           <BodyVideo
             stateBody={stateBody}
-            videoRef={videoRef}
+            videoRef1={videoRef1}
+            videoRef2={videoRef2}
             isStarted={stateBody.disabled}
             onEnded={(e) => {
-              dispatch({ videoRef, type: "NEXT ACTION" });
+              dispatch({ videoRef1, videoRef2, type: "NEXT_ACTION" });
             }}
           />
         </div>

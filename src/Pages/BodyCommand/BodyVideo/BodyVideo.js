@@ -1,7 +1,7 @@
 import classes from "./BodyVideo.module.css";
 
 function BodyVideo(props) {
-  const { stateBody, videoRef, onEnded, isStarted } = props;
+  const { stateBody, videoRef1, videoRef2, onEnded, isStarted } = props;
   const src = stateBody.videoSubject + "IDLE.mp4";
 
   return (
@@ -13,11 +13,19 @@ function BodyVideo(props) {
     >
       <video
         className={classes.videoElement}
-        ref={videoRef}
+        ref={videoRef1}
         muted={true}
         onEnded={onEnded}
         src={src}
-        preload="auto"
+        preload="true"
+        playsInline
+      ></video>
+      <video
+        className={[classes.videoElement, classes.disable].join(" ")}
+        ref={videoRef2}
+        muted={true}
+        onEnded={onEnded}
+        preload="true"
         playsInline
       ></video>
     </div>
