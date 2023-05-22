@@ -63,7 +63,7 @@ function More() {
           websites and social media channels.
           <br />
           <a
-            href="www.fdrdance.com"
+            href="https://www.fdrdance.com"
             className={classes.linkText}
             target="_blank"
             rel="noreferrer"
@@ -75,7 +75,7 @@ function More() {
         <p className={`${classes.textDescription} ${classes.bottomsLinks}`}>
           Dance Method
           <a
-            href="www.thesphericalsystem.com"
+            href="https://www.thesphericalsystem.com"
             className={`ml-3 ${classes.linkText}`}
             target="_blank"
             rel="noreferrer"
