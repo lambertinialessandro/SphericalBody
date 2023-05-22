@@ -8,6 +8,9 @@
 # testing
 /coverage
 /test
+public/video/*
+!public/video/Dancer1
+!public/video/Dancer2
 
 # production
 /build
