@@ -21,6 +21,7 @@ function More() {
               href="https://www.thesphericalsystem.com/forum"
               className={classes.linkText}
               target="_blank"
+              rel="noreferrer"
             >
               www.thesphericalsystem.com/forum
             </a>
@@ -35,6 +36,7 @@ function More() {
             href="https://www.gofundme.com/f/318ge2ckrc"
             className={classes.linkText}
             target="_blank"
+            rel="noreferrer"
           >
             https://www.gofundme.com/f/318ge2ckrc
           </a>
@@ -64,6 +66,7 @@ function More() {
             href="www.fdrdance.com"
             className={classes.linkText}
             target="_blank"
+            rel="noreferrer"
           >
             Dance Company
           </a>
@@ -75,6 +78,7 @@ function More() {
             href="www.thesphericalsystem.com"
             className={`ml-3 ${classes.linkText}`}
             target="_blank"
+            rel="noreferrer"
           >
             www.thesphericalsystem.com
           </a>
@@ -86,6 +90,7 @@ function More() {
             href="https://www.instagram.com/fdrdance/"
             className={`ml-3 ${classes.linkText}`}
             target="_blank"
+            rel="noreferrer"
           >
             @fdrdance
           </a>
@@ -93,6 +98,7 @@ function More() {
             href="https://www.instagram.com/thesphericalsystem/"
             className={`ml-3 ${classes.linkText}`}
             target="_blank"
+            rel="noreferrer"
           >
             @thesphericalsystem
           </a>
@@ -104,6 +110,7 @@ function More() {
             href="https://www.facebook.com/fdrdancecompany"
             className={`ml-3 ${classes.linkText}`}
             target="_blank"
+            rel="noreferrer"
           >
             @fdrdancecompany
           </a>
