@@ -7,7 +7,7 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter basename="/SphericalBody">
+  <BrowserRouter basename="/SphericalBody" key="/SphericalBody">
     <App />
   </BrowserRouter>
 );
