@@ -45,7 +45,7 @@ function App() {
     },
     {
       key: "MORE",
-      path: "/MORE",
+      path: "/More",
       component: <More />,
       title: "MORE...",
     },
