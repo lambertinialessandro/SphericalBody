@@ -12,7 +12,6 @@ function BodyCommand({ title, leftText, reducer, initialState }) {
 
   const [stateBody, dispatch] = useReducer(reducer, initialState);
 
-  // TODO creare un wrapper per il fade out iniziale
   return (
     <>
       <div className={`${classes.initDiv} z-10`}>

@@ -325,10 +325,11 @@ export function reducerBody(state, action) {
 }
 
 export const leftText = {
-  context:
-    "The Spherical Body is a diagram that proposes an architecture of spheres," +
-    "strings, and a cube representing the body." +
-    "Click on the solid spheres to create a short sequence of five movements." +
-    'These are the five spheres that the dancer has selected (known as "code")' +
-    "and will be the origin of the choreography you will witness on stage.",
+  context: [
+    "Welcome! Explore our Spherical Body Diagram. Select a dancer and arrange the solid color" +
+      'spheres in order from 1 to 5. Click "Start" to see them in action. Experiment with different' +
+      "combinations.",
+    'TIP! Try memorizing each "Dancer\'s Code" for a more engaging experience during the live' +
+      "performance. Enjoy!",
+  ],
 };
