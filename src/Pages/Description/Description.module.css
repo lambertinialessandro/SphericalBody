@@ -3,21 +3,13 @@ html {
   overflow-y: initial;
 }
 
-.containerAbstract {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-  align-items: flex-end;
-
-  margin-top: 200px;
-  height: min-content;
+.containerDescription {
+  max-width: 900px;
+  margin: 50px auto;
 }
 
-.textAbstract {
-  width: 50%;
-  height: min-content;
-  margin: 0 50px 150px 0;
-
+.textDescription {
+  margin: 0 0 50px 0;
   font-family: "Tenor Sans", "Aileron thin", sans-serif;
   font-size: 30px;
   text-align: center;
@@ -75,16 +67,22 @@ html {
 }
 
 @media screen and (max-width: 768px) {
-  .containerAbstract {
+  .containerDescription {
+    margin-top: 0;
+    padding-top: 0px;
+
+    width: 100%;
+    height: min-content;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0;
   }
 
-  .textAbstract {
+  .textDescription {
     font-size: 16px;
-    margin: inherit;
+    margin: 0 0 30px 0;
+    width: 80%;
   }
 
   .linkTitle {

@@ -13,16 +13,16 @@ import SubPageWrapper from "./Components/SubPageWrapper/SubPageWrapper";
 import Home from "./Pages/Home/Home";
 import SphericalSystem from "./Pages/SphericalSystem/SphericalSystem";
 import BodyCommand from "./Pages/BodyCommand/BodyCommand";
-import Abstract from "./Pages/Abstract/Abstract";
-import Documentary from "./Pages/Documentary/Documentary";
+import Description from "./Pages/Description/Description";
+import More from "./Pages/More/More";
 
 function App() {
   const links = [
     {
-      key: "ABSTRACT",
-      path: "/Abstract",
-      component: <Abstract />,
-      title: "ABSTRACT",
+      key: "DESCRIPTION",
+      path: "/Description",
+      component: <Description />,
+      title: "DESCRIPTION",
     },
     {
       key: "APP",
@@ -44,10 +44,10 @@ function App() {
       title: "SPHERICAL SYSTEM",
     },
     {
-      key: "DOCUMENTARY",
-      path: "/Documentary",
-      component: <Documentary />,
-      title: "DOCUMENTARY",
+      key: "MORE",
+      path: "/MORE",
+      component: <More />,
+      title: "MORE...",
     },
   ];
   const homeLinks = links.map(({ key, path, title }, index) => {

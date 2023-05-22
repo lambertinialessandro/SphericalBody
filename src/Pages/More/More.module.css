@@ -3,22 +3,34 @@ html {
   overflow-y: initial;
 }
 
-.documentaryContainer {
+.moreContainer {
   display: flex;
   justify-content: center;
 
-  height: 100vh;
   width: 100%;
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
-.documentaryVideo {
+.moreVideo {
   margin: 0 10%;
 
   width: 100%;
   max-width: 880px;
   height: fit-content;
   aspect-ratio: 1.5;
+}
+
+.containerDescription {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.textDescription {
+  margin: 0 0 50px 0;
+  font-family: "Tenor Sans", "Aileron thin", sans-serif;
+  font-size: 30px;
+  text-align: center;
 }
 
 .initDiv {
@@ -72,12 +84,41 @@ html {
   text-align: center;
 }
 
+.linkText {
+  color: #c4a91b;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 768px) {
   .linkTitle {
     font-size: 15px;
   }
 
-  .documentaryVideo {
+  .moreVideo {
     margin: 0 5%;
+  }
+
+  .textDescription {
+    font-size: 16px;
+  }
+
+  .bottomsLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .linkText {
+    background: linear-gradient(to right, #ffffff, #ffffff),
+      linear-gradient(to right, #c4a91b, #c4a91b);
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+  .linkText:hover {
+    background-size: 0 3px, 100% 3px;
   }
 }
