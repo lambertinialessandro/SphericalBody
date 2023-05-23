@@ -31,11 +31,13 @@ function SphericalSystem() {
           possibilities. Finally, participants will choose a "Code of Spheres"
           to improvise using various tasks offered by The Spherical System.
         </p>
-        <p className={classes.textSphericalSystem}>
-          Bio Fernando Domínguez Fernando Domínguez Rincón (Mex. 1987) (He/They)
-          has a B.A. degree in contemporary and modern dance (2011. CODARTS
-          Dance) and an M.A. degree in Choreography (2023. CODARTS – FONTYS),
-          both studies in The Netherlands, and has built a career as a dancer,
+        <p className={`mt-[20px] ${classes.textSphericalSystem}`}>
+          <b>Bio</b>
+          <br />
+          Fernando Domínguez Fernando Domínguez Rincón (Mex. 1987) (He/They) has
+          a B.A. degree in contemporary and modern dance (2011. CODARTS Dance)
+          and an M.A. degree in Choreography (2023. CODARTS – FONTYS), both
+          studies in The Netherlands, and has built a career as a dancer,
           teacher, choreographer, producer, dramaturg, and filmmaker.
         </p>
         <p className={classes.textSphericalSystem}>

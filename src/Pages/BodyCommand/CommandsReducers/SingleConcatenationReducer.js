@@ -326,10 +326,10 @@ export function reducerBody(state, action) {
 
 export const leftText = {
   context: [
-    "Welcome! Explore our Spherical Body Diagram. Select a dancer and arrange the solid color" +
-      'spheres in order from 1 to 5. Click "Start" to see them in action. Experiment with different' +
+    "Welcome! Explore our Spherical Body Diagram. Select a dancer and arrange the solid color " +
+      'spheres in order from 1 to 5. Click "Start" to see them in action. Experiment with different ' +
       "combinations.",
-    'TIP! Try memorizing each "Dancer\'s Code" for a more engaging experience during the live' +
+    'TIP! Try memorizing each "Dancer\'s Code" for a more engaging experience during the live ' +
       "performance. Enjoy!",
   ],
 };

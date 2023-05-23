@@ -38,9 +38,10 @@ function More() {
             target="_blank"
             rel="noreferrer"
           >
-            https://www.gofundme.com/f/318ge2ckrc
+            www.gofundme.com/f/318ge2ckrc
           </a>
-          <br />
+        </p>
+        <p className={classes.textDescription}>
           We are premiering a documentary video as a tool to spread our passion
           for movement!
         </p>
@@ -59,16 +60,19 @@ function More() {
       <div className={classes.containerDescription}>
         <p className={classes.textDescription}>
           Are you interested in following our journey within Spherical Body
-          performance and The Spherical System? Here you can find official
-          websites and social media channels.
+          performance and The Spherical System?
           <br />
+          Here you can find official websites and social media channels.
+        </p>
+        <p className={`${classes.textDescription} ${classes.bottomsLinks}`}>
+          Dance Company
           <a
             href="https://www.fdrdance.com"
-            className={classes.linkText}
+            className={`ml-3 ${classes.linkText}`}
             target="_blank"
             rel="noreferrer"
           >
-            Dance Company
+            www.fdrdance.com
           </a>
         </p>
 
