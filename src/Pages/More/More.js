@@ -68,7 +68,7 @@ function More() {
           Dance Company
           <a
             href="https://www.fdrdance.com"
-            className={`ml-3 ${classes.linkText}`}
+            className={classes.linkText}
             target="_blank"
             rel="noreferrer"
           >
@@ -80,7 +80,7 @@ function More() {
           Dance Method
           <a
             href="https://www.thesphericalsystem.com"
-            className={`ml-3 ${classes.linkText}`}
+            className={classes.linkText}
             target="_blank"
             rel="noreferrer"
           >
@@ -92,7 +92,7 @@ function More() {
           Instagram
           <a
             href="https://www.instagram.com/fdrdance/"
-            className={`ml-3 ${classes.linkText}`}
+            className={classes.linkText}
             target="_blank"
             rel="noreferrer"
           >
@@ -100,7 +100,7 @@ function More() {
           </a>
           <a
             href="https://www.instagram.com/thesphericalsystem/"
-            className={`ml-3 ${classes.linkText}`}
+            className={classes.linkText}
             target="_blank"
             rel="noreferrer"
           >
@@ -112,7 +112,7 @@ function More() {
           Facebook
           <a
             href="https://www.facebook.com/fdrdancecompany"
-            className={`ml-3 ${classes.linkText}`}
+            className={classes.linkText}
             target="_blank"
             rel="noreferrer"
           >

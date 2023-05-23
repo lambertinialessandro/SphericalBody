@@ -118,6 +118,9 @@ html {
     background-repeat: no-repeat;
     transition: background-size 400ms;
   }
+  .bottomsLinks .linkText {
+    margin-left: 12px;
+  }
   .linkText:hover {
     background-size: 0 3px, 100% 3px;
   }
