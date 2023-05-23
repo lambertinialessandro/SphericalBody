@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/SphericalBody/static/css/main.16bbb24c.css",
-    "main.js": "/SphericalBody/static/js/main.a67b728a.js",
+    "main.css": "/SphericalBody/static/css/main.c30014da.css",
+    "main.js": "/SphericalBody/static/js/main.9d4afc84.js",
     "static/media/aileron.thin.otf": "/SphericalBody/static/media/aileron.thin.b0b81d054a4b59f89a42.otf",
     "index.html": "/SphericalBody/index.html",
-    "main.16bbb24c.css.map": "/SphericalBody/static/css/main.16bbb24c.css.map",
-    "main.a67b728a.js.map": "/SphericalBody/static/js/main.a67b728a.js.map"
+    "main.c30014da.css.map": "/SphericalBody/static/css/main.c30014da.css.map",
+    "main.9d4afc84.js.map": "/SphericalBody/static/js/main.9d4afc84.js.map"
   },
   "entrypoints": [
-    "static/css/main.16bbb24c.css",
-    "static/js/main.a67b728a.js"
+    "static/css/main.c30014da.css",
+    "static/js/main.9d4afc84.js"
   ]
 }
