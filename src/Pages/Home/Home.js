@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import HeaderHome from "./HeaderHome";
 import ButtonLink from "./ButtonLink";
+import AutomaticAudio from "../../Components/AutomaticAudio/AutomaticAudio";
 
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -171,6 +172,7 @@ function Home({ links }) {
         </div>
         <div className={classes.fsm_actual} ref={divFSM}></div>
       </div>
+      <AutomaticAudio src="./audio/Spherical body music final.mp3" />
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import AutomaticAudio from "../../Components/AutomaticAudio/AutomaticAudio";
+
 import classes from "./SphericalSystem.module.css";
 
 function SphericalSystem() {
@@ -68,6 +70,7 @@ function SphericalSystem() {
           (2006. N.Y.), awarded by YAGP.
         </p>
       </div>
+      <AutomaticAudio src="./audio/Spherical body music final.mp3" />
     </>
   );
 }

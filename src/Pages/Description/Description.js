@@ -1,3 +1,5 @@
+import AutomaticAudio from "../../Components/AutomaticAudio/AutomaticAudio";
+
 import classes from "./Description.module.css";
 
 function Description() {
@@ -38,6 +40,7 @@ function Description() {
           creative process of choreographer Fernando Domínguez Rincón.
         </p>
       </div>
+      <AutomaticAudio src="./audio/Spherical body music final.mp3" />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { useRef, useReducer } from "react";
 import BodyText from "./BodyText/BodyText";
 import BodyVideo from "./BodyVideo/BodyVideo";
 import BodyController from "./BodyController/BodyController";
+import AutomaticAudio from "../../Components/AutomaticAudio/AutomaticAudio";
 
 import classes from "./BodyCommand.module.css";
 
@@ -41,6 +42,7 @@ function BodyCommand({ title, leftText, reducer, initialState }) {
           />
         </div>
       </div>
+      <AutomaticAudio src="./audio/Spherical body music final.mp3" />
     </>
   );
 }
